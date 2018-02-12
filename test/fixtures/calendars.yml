@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  classroom: MyString
+  startTime: MyString
+  endTime: MyString
+  reservation: MyString
+
+two:
+  classroom: MyString
+  startTime: MyString
+  endTime: MyString
+  reservation: MyString

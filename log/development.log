@@ -1,0 +1,65 @@
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (174.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (108.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (118.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-02-12 10:24:48.189018"], ["updated_at", "2018-02-12 10:24:48.189018"]]
+  [1m[35m (102.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-02-12 11:25:10 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (7.0ms)
+Completed 200 OK in 111ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2018-02-12 11:25:17 +0100
+Processing by CalendarsController#index as HTML
+  Rendering calendars/index.html.erb within layouts/application
+  [1m[36mCalendar Load (0.0ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars"[0m
+  Rendered calendars/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 3542ms (Views: 3513.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/calendars/new" for 127.0.0.1 at 2018-02-12 11:25:37 +0100
+Processing by CalendarsController#new as HTML
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/_form.html.erb (31.0ms)
+  Rendered calendars/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 206ms (Views: 167.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/calendars" for 127.0.0.1 at 2018-02-12 11:25:52 +0100
+Processing by CalendarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MIZzNue/xlNaLzZHExURqsVq334hcPLpTRgcibJERJLYTxLwUFPu80FsFBipbvoszDvSsgDnCPNOD+q6PJBXDg==", "calendar"=>{"classroom"=>"H4.113", "startTime"=>"1", "endTime"=>"2", "reservation"=>"Testreserve"}, "commit"=>"Create Calendar"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (159.1ms)[0m  [1m[32mINSERT INTO "calendars" ("classroom", "startTime", "endTime", "reservation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["classroom", "H4.113"], ["startTime", "1"], ["endTime", "2"], ["reservation", "Testreserve"], ["created_at", "2018-02-12 10:25:52.767699"], ["updated_at", "2018-02-12 10:25:52.767699"]]
+  [1m[35m (175.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/calendars/1
+Completed 302 Found in 344ms (ActiveRecord: 334.4ms)
+
+
+Started GET "/calendars/1" for 127.0.0.1 at 2018-02-12 11:25:53 +0100
+Processing by CalendarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCalendar Load (0.0ms)[0m  [1m[34mSELECT  "calendars".* FROM "calendars" WHERE "calendars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering calendars/show.html.erb within layouts/application
+  Rendered calendars/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 141ms (Views: 103.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2018-02-12 11:25:56 +0100
+Processing by CalendarsController#index as HTML
+  Rendering calendars/index.html.erb within layouts/application
+  [1m[36mCalendar Load (1.0ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars"[0m
+  Rendered calendars/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 112ms (Views: 92.1ms | ActiveRecord: 1.0ms)
+
+
