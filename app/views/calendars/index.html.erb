@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+	  <th>Id</th>
       <th>Classroom</th>
       <th>Starttime</th>
       <th>Endtime</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @calendars.each do |calendar| %>
       <tr>
+		<td><%= calendar.id %></td>
         <td><%= calendar.classroom %></td>
         <td><%= calendar.startTime %></td>
         <td><%= calendar.endTime %></td>
