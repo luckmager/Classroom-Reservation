@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ClassroomRegistration</title>
+    <title>ClassroomView</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar navbar-inverted navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div id="guestText">
+					<a href="/classrooms" id="guestText">HR Classrooms</a>
+					<ul class="navbar-right">
+						<li><a href="#" id="loginText">Admin page</a></li>
+						<li><a href="#" id="loginText">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	 </div>
+	<div class="innerBody">
+		<%= yield %>
+	</div>
   </body>
 </html>
