@@ -63,3 +63,2892 @@ Processing by CalendarsController#index as HTML
 Completed 200 OK in 112ms (Views: 92.1ms | ActiveRecord: 1.0ms)
 
 
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-03-15 18:49:13 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 76ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180315181014)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181014"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180315181113)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" datetime, "to" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181113"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180315181123)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181123"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180315181134)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181134"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDeviceInformations (20180315181159)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "device_informations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "device_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_device_informations_on_device_id" ON "device_informations" ("device_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181159"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-03-15 19:30:24 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 78ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:30:32 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 1428ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: Deze eigenschap of methode wordt niet ondersteund door dit object):
+    4:     <title>ClassroomRegistration</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___127732228_62772984'
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:31:29 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (The asset "default.css" is not present in the asset pipeline.):
+    4:     <title>ClassroomRegistration</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___127732228_101153844'
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:33:30 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb (4.0ms)
+Completed 200 OK in 84ms (Views: 58.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:33:50 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb (3.0ms)
+Completed 200 OK in 67ms (Views: 52.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:33:53 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb (1.0ms)
+Completed 200 OK in 65ms (Views: 51.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-15 19:34:20 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 63ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-15 19:36:20 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 63ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:36:24 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (The asset "default.css" is not present in the asset pipeline.):
+    4:     <title>ClassroomRegistration</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___281505047_64050348'
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:37:10 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 56ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:38:02 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 858ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: Deze eigenschap of methode wordt niet ondersteund door dit object):
+    4:     <title>ClassroomRegistration</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__996897518_64773960'
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 19:40:56 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1256ms (Views: 1235.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-15 20:13:20 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 246ms (Views: 223.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-15 20:18:01 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  Rendered classrooms/_form.html.erb (18.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 124ms (Views: 106.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-15 20:18:07 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QO9P+4YM/AlnEGHpxaImK6QVXikUA7d0NUQtarAY8Oca2ORnOTgeBc/1h4GNys0wmugMriih4Gir8CquFyJ/Rg==", "classroom"=>{"name"=>"H4.3.312"}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "classrooms" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "H4.3.312"], ["created_at", "2018-03-15 19:18:07.390376"], ["updated_at", "2018-03-15 19:18:07.390376"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/1
+Completed 302 Found in 11ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-15 20:18:07 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 81ms (Views: 63.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 20:18:09 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 87ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-15 20:18:10 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 85ms (Views: 74.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 20:18:54 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 88ms (Views: 76.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-15 20:27:05 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 75ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-15 20:33:28 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 79ms (Views: 67.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 20:44:56 +0100
+  
+ActionController::RoutingError (uninitialized constant BuildingsController):
+  
+activesupport (5.1.5) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.5) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.5) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.5) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.5) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.5) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.5) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 20:46:32 +0100
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 20:46:48 +0100
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 20:46:56 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/buildings"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 20:47:58 +0100
+  
+SyntaxError (C:/Sites/Classroom-Reservation/config/routes.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  get 'buildings' to: "buildings#index" as:"buildings"
+                    ^
+C:/Sites/Classroom-Reservation/config/routes.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  get 'buildings' to: "buildings#index" as:"buildings"
+                                          ^):
+  
+config/routes.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+config/routes.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 20:49:51 +0100
+  
+ArgumentError (You should not use the `match` method in your router without specifying an HTTP method.
+If you want to expose your action to both GET and POST, add `via: [:get, :post]` option.
+If you want to expose your action to GET, use `get` in the router:
+  Instead of: match "controller#action"
+  Do: get "controller#action"):
+  
+config/routes.rb:4:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 21:03:58 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/buildings"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 21:04:22 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/buildings"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:04:31 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  Rendered buildings/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 472ms (Views: 458.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/index" for 127.0.0.1 at 2018-03-15 21:05:00 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 10ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Classroom with 'id'=index):
+  
+app/controllers/classrooms_controller.rb:67:in `set_classroom'
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:05:23 +0100
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:2:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:05:34 +0100
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:2:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:05:39 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  Rendered buildings/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 105ms (Views: 90.1ms)
+
+
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:06:21 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 262ms (Views: 240.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:07:00 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/buildings/index"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/buildings" for 127.0.0.1 at 2018-03-15 21:07:03 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/buildings"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/buildings/index" for 127.0.0.1 at 2018-03-15 21:07:28 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  Rendered buildings/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 274ms (Views: 260.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:23:55 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 885ms (Views: 845.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms/edit" for 127.0.0.1 at 2018-03-19 08:25:09 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 11ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Classroom with 'id'=edit):
+  
+app/controllers/classrooms_controller.rb:67:in `set_classroom'
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:27:11 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 149ms (Views: 133.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:27:33 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 125ms (Views: 106.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:27:42 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 128ms (Views: 109.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:27:54 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 122ms (Views: 106.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:28:06 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 125ms (Views: 108.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:28:11 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 123ms (Views: 107.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:28:17 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 123ms (Views: 106.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:30:05 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 127ms (Views: 112.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:30:12 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 124ms (Views: 108.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:30:12 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 92ms (Views: 76.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:30:33 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 97ms (Views: 81.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:30:45 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 127ms (Views: 112.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:31:14 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 127ms (Views: 111.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:31:47 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 137ms (Views: 122.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:32:05 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 132ms (Views: 117.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:32:17 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 133ms (Views: 117.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:32:25 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 127ms (Views: 112.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:32:31 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 128ms (Views: 112.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:33:01 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 130ms (Views: 115.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:33:08 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 134ms (Views: 119.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:33:27 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 135ms (Views: 119.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:33:47 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 92ms (Views: 77.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:34:17 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 132ms (Views: 114.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:34:36 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 128ms (Views: 112.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:34:39 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 90ms (Views: 75.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:34:40 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 90ms (Views: 75.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:34:47 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 135ms (Views: 119.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:34:54 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 132ms (Views: 117.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-19 08:35:01 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 132ms (Views: 116.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:35:09 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 94ms (Views: 79.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1/edit" for 127.0.0.1 at 2018-03-19 08:35:20 +0100
+Processing by ClassroomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/edit.html.erb within layouts/application
+  Rendered classrooms/_form.html.erb (61.0ms)
+  Rendered classrooms/edit.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 185ms (Views: 164.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:35:22 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 92ms (Views: 78.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:35:27 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 95ms (Views: 79.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:35:40 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 97ms (Views: 82.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:36:17 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 100ms (Views: 83.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:36:18 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 89ms (Views: 75.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:36:49 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 126ms (Views: 112.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:37:17 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 118ms (Views: 103.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:37:57 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 96ms (Views: 81.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:38:06 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 129ms (Views: 111.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:38:27 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 94ms (Views: 79.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:39:41 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 127ms (Views: 112.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:39:47 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 125ms (Views: 107.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:40:09 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 123ms (Views: 108.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:40:13 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 129ms (Views: 111.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:40:16 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 126ms (Views: 108.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180315181113)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" datetime, "to" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181113"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180315181123)
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181123"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180315181134)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181134"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDeviceInformations (20180315181159)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "device_informations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "device_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_device_informations_on_device_id" ON "device_informations" ("device_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181159"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-19 07:44:50.676956"], ["updated_at", "2018-03-19 07:44:50.676956"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:45:04 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 449ms (Views: 426.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 08:45:19 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  Rendered classrooms/_form.html.erb (32.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 133ms (Views: 110.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:45:21 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 84ms (Views: 72.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 08:45:26 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 100ms (Views: 83.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/buildings/new" for 127.0.0.1 at 2018-03-19 08:45:27 +0100
+Processing by BuildingsController#new as HTML
+  Rendering buildings/new.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (3.0ms)
+  Rendered buildings/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 111ms (Views: 95.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/buildings" for 127.0.0.1 at 2018-03-19 08:45:32 +0100
+Processing by BuildingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KHRyv7biR7nurJQNJsFtMussof/p2poVTs6YuH1Czq1DEU80JM5/oMCVGuGt76cUPV9X9TEGdof7eQeHlGJp4A==", "building"=>{"name"=>"Wijnhaven 69"}, "commit"=>"Create Building"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wijnhaven 69"], ["created_at", "2018-03-19 07:45:32.585727"], ["updated_at", "2018-03-19 07:45:32.585727"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings/1
+Completed 302 Found in 10ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/buildings/1" for 127.0.0.1 at 2018-03-19 08:45:32 +0100
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 80ms (Views: 63.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 08:45:33 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 80ms (Views: 67.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings/new" for 127.0.0.1 at 2018-03-19 08:45:36 +0100
+Processing by BuildingsController#new as HTML
+  Rendering buildings/new.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (2.0ms)
+  Rendered buildings/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 90ms (Views: 80.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/buildings" for 127.0.0.1 at 2018-03-19 08:45:42 +0100
+Processing by BuildingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JDlfsfYBoB63kjfR/bLVbRZU76kZNJbQZaDgj/TTDUFPXGI6ZC2YB5mruT12nB9LwCcZo8HoekLQF3+wHfOqDA==", "building"=>{"name"=>"Kralingse zoom"}, "commit"=>"Create Building"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kralingse zoom"], ["created_at", "2018-03-19 07:45:42.159264"], ["updated_at", "2018-03-19 07:45:42.159264"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings/2
+Completed 302 Found in 12ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/buildings/2" for 127.0.0.1 at 2018-03-19 08:45:42 +0100
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 81ms (Views: 70.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 08:45:43 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 85ms (Views: 74.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 08:51:33 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 96ms (Views: 81.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:51:36 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 81ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 08:51:37 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  Rendered classrooms/_form.html.erb (175.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (192.0ms)
+Completed 500 Internal Server Error in 237ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x90c75a8>:0x2754378>):
+    13:   
+    14:   <div class="field">
+    15:     <%= form.label :building %>
+    16:     <%= f.select(:building_id, buildings_for_select, :prompt => 'Select') %>
+    17:   </div>
+    18:   
+    19:   <div class="field">
+  
+app/views/classrooms/_form.html.erb:16:in `block in _app_views_classrooms__form_html_erb___1067176789_103905408'
+app/views/classrooms/_form.html.erb:1:in `_app_views_classrooms__form_html_erb___1067176789_103905408'
+app/views/classrooms/new.html.erb:3:in `_app_views_classrooms_new_html_erb__810658291_37217076'
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 08:53:08 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (10.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 94ms (Views: 83.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 08:57:08 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (24.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 136ms (Views: 99.8ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-19 08:57:12 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PNpONtp4Ars/bHZpGfFex3fs6fWri4N1G0/naHINeea+yaR3vqgC7YQ9maKHbAKd2g4x9fce+vzkGDzoaLtCfg==", "classroom"=>{"building_id"=>"1", "name"=>"test"}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "classrooms" ("name", "building_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test"], ["building_id", 1], ["created_at", "2018-03-19 07:57:12.940411"], ["updated_at", "2018-03-19 07:57:12.940411"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/1
+Completed 302 Found in 54ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:57:12 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 88ms (Views: 76.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:57:40 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 83ms (Views: 71.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:57:45 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 93ms (Views: 82.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:57:56 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 90ms (Views: 77.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1/edit" for 127.0.0.1 at 2018-03-19 08:58:04 +0100
+Processing by ClassroomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/edit.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/edit.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 105ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:58:06 +0100
+Processing by ClassroomsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tW9o/sNORHXZge00aXXxsJNlCt3LAGGQmmK40+oP+ZMFO2Ju4Uh1XhtTZ4TlwRr7BjkL9jiqlHTfhfurvT5AcA==", "classroom"=>{"building_id"=>"2", "name"=>"test"}, "commit"=>"Update Classroom", "id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "classrooms" SET "building_id" = ?, "updated_at" = ? WHERE "classrooms"."id" = ?[0m  [["building_id", 2], ["updated_at", "2018-03-19 07:58:06.847602"], ["id", 1]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/1
+Completed 302 Found in 15ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:58:06 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 90ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:58:10 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 79ms (Views: 68.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 08:58:12 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 91ms (Views: 80.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-19 08:58:13 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FYpZmhEGkw5hdGxZjMDjNEioOSGB7wRUeWJvyM3gLt5PvfIGrjJxAsmRijHEqAgvdlVrpr1NU0jn1mgMatqhfw==", "classroom"=>{"building_id"=>"", "name"=>""}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 83ms (Views: 79.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-19 08:58:20 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vlyzkZpjlslc7C2rXaAgHjEqnweqP4TNbrKhbobPjZs8T1nQ/rOWn+e9wmDDPXxEnMhHB/aq/USR5XrunHm2Aw==", "classroom"=>{"building_id"=>"1", "name"=>""}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "classrooms" ("name", "building_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", ""], ["building_id", 1], ["created_at", "2018-03-19 07:58:20.294900"], ["updated_at", "2018-03-19 07:58:20.294900"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/2
+Completed 302 Found in 16ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/classrooms/2" for 127.0.0.1 at 2018-03-19 08:58:20 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 82ms (Views: 70.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:59:19 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 96ms (Views: 81.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 08:59:23 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 87ms (Views: 70.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/buildings/1" for 127.0.0.1 at 2018-03-19 08:59:26 +0100
+Processing by BuildingsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Judd+6UOPZHK/chu44+IyPPqmI4KgAQJChEWEuZuPD2k9Le6wd49x3GsJ6V9EtSSXghAjlYVfYD1Rs2S/NgHpQ==", "id"=>"1"}
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."building_id" = ?[0m  [["building_id", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "classrooms" WHERE "classrooms"."id" = ?[0m  [["id", 2]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "buildings" WHERE "buildings"."id" = ?[0m  [["id", 1]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings
+Completed 302 Found in 45ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 08:59:26 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 80ms (Views: 69.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:59:30 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 82ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 08:59:35 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 81ms (Views: 69.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:59:36 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 78ms (Views: 66.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 08:59:54 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 77ms (Views: 66.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 09:00:28 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 81ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:00:50 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 87ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 09:00:51 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 84ms (Views: 72.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180315181113)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" datetime, "to" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181113"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180315181134)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181134"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDeviceInformations (20180315181159)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "device_informations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "device_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_device_informations_on_device_id" ON "device_informations" ("device_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181159"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319080309"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-19 08:03:31.161299"], ["updated_at", "2018-03-19 08:03:31.161299"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180315181113)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" datetime, "to" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181113"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180315181134)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181134"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDeviceInformations (20180315181159)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "device_informations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "device_id" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_device_informations_on_device_id" ON "device_informations" ("device_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181159"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_8f5f78db7f"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319080309"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-19 08:05:26.941638"], ["updated_at", "2018-03-19 08:05:26.941638"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_device_informations_on_device_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 09:05:41 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 21ms (ActiveRecord: 2.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Classroom with 'id'=1):
+  
+app/controllers/classrooms_controller.rb:67:in `set_classroom'
+Started GET "/" for 127.0.0.1 at 2018-03-19 09:05:44 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 1332ms (Views: 1081.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-03-19 09:06:00 +0100
+Processing by OptionsController#index as HTML
+  Rendering options/index.html.erb within layouts/application
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT "options".* FROM "options"[0m
+  Rendered options/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 93ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/options/new" for 127.0.0.1 at 2018-03-19 09:06:02 +0100
+Processing by OptionsController#new as HTML
+  Rendering options/new.html.erb within layouts/application
+  Rendered options/_form.html.erb (24.0ms)
+  Rendered options/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 137ms (Views: 121.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/options" for 127.0.0.1 at 2018-03-19 09:08:34 +0100
+Processing by OptionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AcLAp4Lbk0MJHpxH8GQcviJ7/gJm39Z89HyUnKUbTwfxhzEWrGFUe3785QAxvNlrVob8pgeDhE6GK30MvIqJZQ==", "option"=>{"name"=>"Computer"}, "commit"=>"Create Option"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "options" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Computer"], ["created_at", "2018-03-19 08:08:34.229563"], ["updated_at", "2018-03-19 08:08:34.229563"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/options/1
+Completed 302 Found in 12ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/options/1" for 127.0.0.1 at 2018-03-19 09:08:34 +0100
+Processing by OptionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT  "options".* FROM "options" WHERE "options"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering options/show.html.erb within layouts/application
+  Rendered options/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 98ms (Views: 84.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-03-19 09:08:36 +0100
+Processing by OptionsController#index as HTML
+  Rendering options/index.html.erb within layouts/application
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT "options".* FROM "options"[0m
+  Rendered options/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 80ms (Views: 70.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/options/new" for 127.0.0.1 at 2018-03-19 09:08:37 +0100
+Processing by OptionsController#new as HTML
+  Rendering options/new.html.erb within layouts/application
+  Rendered options/_form.html.erb (2.0ms)
+  Rendered options/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 94ms (Views: 83.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/options" for 127.0.0.1 at 2018-03-19 09:08:40 +0100
+Processing by OptionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tmIDxRc1ED4N+uG7QdsMsgZPi0ahIh5hR95d3j54StZGJ/J0OY/XBnoYmPyAA8lncrKJ4sB+TFM1ibROJ+mMtA==", "option"=>{"name"=>"Screen"}, "commit"=>"Create Option"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "options" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Screen"], ["created_at", "2018-03-19 08:08:40.171019"], ["updated_at", "2018-03-19 08:08:40.171019"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/options/2
+Completed 302 Found in 11ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/options/2" for 127.0.0.1 at 2018-03-19 09:08:40 +0100
+Processing by OptionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOption Load (1.0ms)[0m  [1m[34mSELECT  "options".* FROM "options" WHERE "options"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering options/show.html.erb within layouts/application
+  Rendered options/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 79ms (Views: 68.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-03-19 09:08:41 +0100
+Processing by OptionsController#index as HTML
+  Rendering options/index.html.erb within layouts/application
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT "options".* FROM "options"[0m
+  Rendered options/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 79ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:10:18 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 80ms (Views: 69.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 09:10:24 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (12.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 105ms (Views: 88.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-19 09:10:26 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hoehyZJlXtI86asBIOeD3BkxpAApUhhC292ETYV6VgvcsApVLVG83pQMTWloj2jHJ8z2hxXwT15FaYOJIkDZqg==", "classroom"=>{"building_id"=>"", "name"=>""}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 91ms (Views: 78.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:10:28 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 82ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 09:10:32 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 81ms (Views: 69.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings/new" for 127.0.0.1 at 2018-03-19 09:10:34 +0100
+Processing by BuildingsController#new as HTML
+  Rendering buildings/new.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (2.0ms)
+  Rendered buildings/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 93ms (Views: 79.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/buildings" for 127.0.0.1 at 2018-03-19 09:10:38 +0100
+Processing by BuildingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kaSu4AjxdejKXLDl7Q3pdHaxYFWL0UtT4XQOQO4jnCX6wZNrmt1N8eRlPglmIyNSoMKWX1MNp8FUw5F/BwM7aA==", "building"=>{"name"=>"Wijnhaven 69"}, "commit"=>"Create Building"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wijnhaven 69"], ["created_at", "2018-03-19 08:10:38.018917"], ["updated_at", "2018-03-19 08:10:38.018917"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings/1
+Completed 302 Found in 12ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/buildings/1" for 127.0.0.1 at 2018-03-19 09:10:38 +0100
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 79ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 09:10:39 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 79ms (Views: 67.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:10:42 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 90ms (Views: 78.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 09:10:44 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (2.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 95ms (Views: 84.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:14:01 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 84ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180315181113)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" datetime, "to" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181113"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_8f5f78db7f"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319080309"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180319081732)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "auth" varchar, "temperature" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_940c8a6313"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319081732"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-19 08:18:38.564322"], ["updated_at", "2018-03-19 08:18:38.564322"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:21:29 +0100
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:21:29 +0100
+Started GET "/devices" for 127.0.0.1 at 2018-03-19 09:21:29 +0100
+Started GET "/devices" for 127.0.0.1 at 2018-03-19 09:21:29 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+Processing by ClassroomsController#index as HTML
+Processing by DevicesController#index as HTML
+  Rendering devices/index.html.erb within layouts/application
+  Rendering classrooms/index.html.erb within layouts/application
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered devices/index.html.erb within layouts/application (5.0ms)
+  Rendered classrooms/index.html.erb within layouts/application (5.0ms)
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 993ms (ActiveRecord: 1.0ms)
+
+
+Completed 500 Internal Server Error in 992ms (ActiveRecord: 2.0ms)
+
+
+  
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/Sites/Classroom-Reservation/tmp/cache/assets/sprockets/v3.0/fS/fSOZr-0hH2PalYBhgiySc_2a0DBx9NfmotU8qqmP6pk.cache.58792680.4624.328457, C:/Sites/Classroom-Reservation/tmp/cache/assets/sprockets/v3.0/fS/fSOZr-0hH2PalYBhgiySc_2a0DBx9NfmotU8qqmP6pk.cache)):
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/Sites/Classroom-Reservation/tmp/cache/assets/sprockets/v3.0/fS/fSOZr-0hH2PalYBhgiySc_2a0DBx9NfmotU8qqmP6pk.cache.58792572.4624.929372, C:/Sites/Classroom-Reservation/tmp/cache/assets/sprockets/v3.0/fS/fSOZr-0hH2PalYBhgiySc_2a0DBx9NfmotU8qqmP6pk.cache)):
+    4:     <title>ClassroomView</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+    4:     <title>ClassroomView</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1057238872_51242460'
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1057238872_51242460'
+Completed 200 OK in 8006ms (Views: 7947.9ms | ActiveRecord: 0.0ms)
+
+
+Processing by DevicesController#index as HTML
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 96ms (Views: 82.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-03-19 09:22:49 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DevicesController#index as HTML
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 264ms (Views: 238.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/devices/new" for 127.0.0.1 at 2018-03-19 09:23:02 +0100
+Processing by DevicesController#new as HTML
+  Rendering devices/new.html.erb within layouts/application
+  Rendered devices/_form.html.erb (23.0ms)
+  Rendered devices/new.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 140ms (Views: 122.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices/new" for 127.0.0.1 at 2018-03-19 09:23:52 +0100
+Processing by DevicesController#new as HTML
+  Rendering devices/new.html.erb within layouts/application
+  Rendered devices/_form.html.erb (1.0ms)
+  Rendered devices/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 111ms (Views: 100.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices" for 127.0.0.1 at 2018-03-19 09:23:55 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vp+D+VocE+jNve2wTpFpvE1Q7SClEit44Y/OHY2KZww8jGm4PswTvnbsAnvQDDXm4LI1IPmHUvEe2BWdlzxclA==", "device"=>{"name"=>"Pi"}, "commit"=>"Create Device"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devices/new.html.erb within layouts/application
+  Rendered devices/_form.html.erb (2.0ms)
+  Rendered devices/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 118ms (Views: 99.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-03-19 09:25:13 +0100
+Processing by DevicesController#index as HTML
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 88ms (Views: 73.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/devices/new" for 127.0.0.1 at 2018-03-19 09:25:17 +0100
+Processing by DevicesController#new as HTML
+  Rendering devices/new.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered devices/_form.html.erb (8.0ms)
+  Rendered devices/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 107ms (Views: 89.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-03-19 09:25:20 +0100
+Processing by DevicesController#index as HTML
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 92ms (Views: 80.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:25:21 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 81ms (Views: 70.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 09:25:22 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (11.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 107ms (Views: 89.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 09:25:29 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 81ms (Views: 70.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings/new" for 127.0.0.1 at 2018-03-19 09:25:30 +0100
+Processing by BuildingsController#new as HTML
+  Rendering buildings/new.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (2.0ms)
+  Rendered buildings/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 97ms (Views: 83.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/buildings" for 127.0.0.1 at 2018-03-19 09:25:36 +0100
+Processing by BuildingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4zFFypM5CA629SoHp7FOszvS+Ret3LKmsi/Y3qEU6FqIVHhBARUwF5jMpOssn4SV7aEPHXUAXjQHmEfhSDRPFw==", "building"=>{"name"=>"Wijnhaven 69"}, "commit"=>"Create Building"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wijnhaven 69"], ["created_at", "2018-03-19 08:25:36.633153"], ["updated_at", "2018-03-19 08:25:36.633153"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings/1
+Completed 302 Found in 12ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/buildings/1" for 127.0.0.1 at 2018-03-19 09:25:36 +0100
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 86ms (Views: 70.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-03-19 09:25:38 +0100
+Processing by BuildingsController#index as HTML
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 84ms (Views: 72.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:25:44 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 84ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 09:25:46 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 93ms (Views: 82.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-19 09:25:52 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h2odRni+biZ+iLhTLKqClgc9f5ImNACmSHL+3nrKr7TdXbbax4qMKtZtXjtkwmmNOcAtFRqWV7rWxvka3fAgFQ==", "classroom"=>{"building_id"=>"1", "name"=>"H.4.312"}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "classrooms" ("name", "building_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "H.4.312"], ["building_id", 1], ["created_at", "2018-03-19 08:25:52.699092"], ["updated_at", "2018-03-19 08:25:52.699092"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/1
+Completed 302 Found in 18ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 09:25:52 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 89ms (Views: 75.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:25:56 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 82ms (Views: 71.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-03-19 09:26:01 +0100
+Processing by DevicesController#index as HTML
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 95ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices/new" for 127.0.0.1 at 2018-03-19 09:26:02 +0100
+Processing by DevicesController#new as HTML
+  Rendering devices/new.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered devices/_form.html.erb (3.0ms)
+  Rendered devices/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 100ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices" for 127.0.0.1 at 2018-03-19 09:26:08 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0XuGKNLkI0FQ61w6VYOdo2DozG/7zVrFVbGSA72aTPvNcqIzuZUrQTDxlwRMxhkGqIdJWLfasSZ3azVnq4RY+Q==", "device"=>{"classroom_id"=>"1", "name"=>"Pi"}, "commit"=>"Create Device"}
+Unpermitted parameter: :classroom_id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devices/new.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered devices/_form.html.erb (3.0ms)
+  Rendered devices/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 92ms (Views: 88.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices" for 127.0.0.1 at 2018-03-19 09:26:12 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UezCTPinvb15ztnKQ1PbUA+wqkXitNo5uubAOV7IaJjT/ygNnHe968KfNgHdzocKolJyRb4ho7BFsRu5RH5TAA==", "device"=>{"classroom_id"=>"1", "name"=>"Pi"}, "commit"=>"Create Device"}
+Unpermitted parameter: :classroom_id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devices/new.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered devices/_form.html.erb (3.0ms)
+  Rendered devices/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 92ms (Views: 88.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices" for 127.0.0.1 at 2018-03-19 09:26:52 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/W5hk9Rw8a+0mGtv1PJCx67cRLxqJi5/byEiKj6NPyh/fYvSsKDx+Q/JhKRKbx6dAz6cvDazV/aQdvmqJDsEsA==", "device"=>{"classroom_id"=>"1", "name"=>"Pi"}, "commit"=>"Create Device"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "devices" ("name", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pi"], ["classroom_id", 1], ["created_at", "2018-03-19 08:26:52.136603"], ["updated_at", "2018-03-19 08:26:52.136603"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/devices/1
+Completed 302 Found in 44ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/devices/1" for 127.0.0.1 at 2018-03-19 09:26:52 +0100
+Processing by DevicesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devices/show.html.erb within layouts/application
+  Rendered devices/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 83ms (Views: 72.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices/1" for 127.0.0.1 at 2018-03-19 09:27:53 +0100
+Processing by DevicesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devices/show.html.erb within layouts/application
+  Rendered devices/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 82ms (Views: 71.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:27:56 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 86ms (Views: 75.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 09:28:04 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 95ms (Views: 81.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-03-19 09:29:42 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 86ms (Views: 73.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:29:50 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 85ms (Views: 73.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-03-19 09:30:09 +0100
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 93ms (Views: 82.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-03-19 09:30:15 +0100
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vXDMBNZJ5T9oM+55ylr+uuA4pdsO4egSW5FELotAL5HnR2eYaX0HM8DWCBGCMhWh3sX3XDJDvw7FJUPqLHqgMA==", "classroom"=>{"building_id"=>"1", "name"=>"H.4.306"}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "classrooms" ("name", "building_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "H.4.306"], ["building_id", 1], ["created_at", "2018-03-19 08:30:15.714448"], ["updated_at", "2018-03-19 08:30:15.714448"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/2
+Completed 302 Found in 14ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/classrooms/2" for 127.0.0.1 at 2018-03-19 09:30:15 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 2], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (16.0ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `temperature' for nil:NilClass):
+     6:   <strong>Name:</strong>
+     7:   <%= @classroom.name %><br />
+     8:   <strong>Temperature:</strong>
+     9:   <%= @classroom.device.temperature %>
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+  
+app/views/classrooms/show.html.erb:9:in `_app_views_classrooms_show_html_erb___361998212_116513484'
+Started GET "/classrooms/2" for 127.0.0.1 at 2018-03-19 09:31:08 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 2], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 90ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:31:10 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 88ms (Views: 77.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-03-19 09:31:54 +0100
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 85ms (Views: 75.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/2" for 127.0.0.1 at 2018-03-19 09:31:55 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (no method name given):
+     6:   <strong>Name:</strong>
+     7:   <%= @classroom.name %><br />
+     8:   <strong>Temperature:</strong>
+     9:   <%= @classroom.try.device.temperature %>
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+  
+app/views/classrooms/show.html.erb:9:in `_app_views_classrooms_show_html_erb___361998212_118457400'
+Started GET "/classrooms/2" for 127.0.0.1 at 2018-03-19 09:32:07 +0100
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (200.1ms)
+Completed 500 Internal Server Error in 239ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `device' for #<#<Class:0x92e3860>:0xc479208>
+Did you mean?  device_url):
+     6:   <strong>Name:</strong>
+     7:   <%= @classroom.name %><br />
+     8:   <strong>Temperature:</strong>
+     9:   <%= @classroom.try(device).temperature %>
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+  
+app/views/classrooms/show.html.erb:9:in `_app_views_classrooms_show_html_erb___361998212_103009308'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20180329112410)
+  [1m[35m (2.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180329112410"]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-03-29 13:32:10 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/Sites/Classroom-Reservation/app/models/classroom.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+	has_one :device, dependent :destroy
+	                            ^):
+  
+app/models/classroom.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/controllers/classrooms_controller.rb:7:in `index'
+Started GET "/" for 127.0.0.1 at 2018-03-29 13:32:51 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.5ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 995ms (Views: 933.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-29 13:33:13 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 175ms (Views: 158.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2018-03-29 13:33:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sign_up"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/registrations" for 127.0.0.1 at 2018-03-29 13:33:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/registrations"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-03-29 13:34:55 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (123.0ms)
+Completed 200 OK in 551ms (Views: 518.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2018-03-29 13:35:11 +0200
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 207ms (Views: 190.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-03-29 13:35:16 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 198ms (Views: 196.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-29 13:35:44 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aeNVyFVQOs59SxELJxxF5scYRgr/LxhThsGwlS0nqfcr/FxV+GkZhPxGFvE7LENW7iRa5nU0a9OUfTG7VwytoQ==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt_ext):
+  
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:16:in `rescue in <top (required)>'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:12:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/encryptor.rb:3:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:167:in `password_digest'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:47:in `password='
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `public_send'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `each'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+activerecord (5.1.5) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+activerecord (5.1.5) lib/active_record/core.rb:337:in `initialize'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+devise (4.4.3) lib/devise/models/registerable.rb:22:in `new_with_session'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:103:in `build_resource'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:17:in `create'
+actionpack (5.1.5) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.5) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-03-29 13:38:44 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/sign_up" for 127.0.0.1 at 2018-03-29 13:38:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sign_up"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-03-29 13:39:03 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.5ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 376ms (Views: 345.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-03-29 13:39:22 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (44.5ms)
+Completed 200 OK in 236ms (Views: 211.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-29 13:39:32 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7zj99y65iwvCn0OdTxYxEMgroQCIa+sLjnBJ0vQwBlbzYs7h2PTIwUI6r8UruR89ovkq+MYYjY6VyCw1ZE4rPg==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-03-29 11:39:32.547006"], ["updated_at", "2018-03-29 11:39:32.547006"], ["email", "0861020@hr.nl"], ["encrypted_password", "$2a$11$Ou9BMMj.ZabRlr4W2MQjX.bsR7p7t2HsOVcPZgxMWrR6dlxHTxi.G"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-03-29 11:39:32.558009"], ["sign_in_count", 1], ["current_sign_in_at", "2018-03-29 11:39:32.556508"], ["last_sign_in_at", "2018-03-29 11:39:32.556508"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 1]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 330ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-29 13:39:32 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.5ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 158ms (Views: 143.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-29 13:39:43 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.5ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 150ms (Views: 134.4ms | ActiveRecord: 0.5ms)
+
+
