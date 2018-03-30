@@ -9,3 +9,14 @@
 5. rake db:migrate
 6. rails s
 7. For now: http://localhost:3000/calendars
+
+#JSON
+
+Sign up (/users) [POST]:
+{
+	"user": {
+		"email": "0861020@hr.nl",
+		"password": "Test1324",
+		"password_confirmation": "Test1324"
+	}
+}
