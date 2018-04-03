@@ -16,7 +16,15 @@
 					<a href="/classrooms" id="guestText">HR Classrooms</a>
 					<ul class="navbar-right">
 						<li><a href="#" id="loginText">Admin page</a></li>
-						<li><a href="#" id="loginText">Login</a></li>
+						<% if user_signed_in? %>
+							<li>
+								<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+							</li>
+						<% else %>
+							<li>
+								<%= link_to('Login', new_user_session_path)  %>  
+							</li>
+						<% end %>
 					</ul>
 				</div>
 			</div>

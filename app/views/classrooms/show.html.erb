@@ -6,11 +6,12 @@
   <strong>Name:</strong>
   <%= @classroom.name %><br />
   <strong>Temperature:</strong>
-  <%= @classroom.try.device.temperature if @classroom.device %>
+  <%= @classroom.try(:device).try(:temperature) %>
 </p>
 
 <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
-<%=image_tag 'qr_code_hint.jpg', class: 'qr-code' %>
-
-<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= image_tag(generate_qr("#{request.protocol}#{request.host_with_port}/classrooms/#{@classroom.id}.json"), class: "qr-code") %>
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<% end %>
 <%= link_to 'Back', classrooms_path %>
