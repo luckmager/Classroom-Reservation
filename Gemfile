@@ -22,6 +22,9 @@ gem 'uglifier', '>= 1.3.0'
 #Device gem for authentication
 gem 'devise'
 
+#Filtering
+gem "smart_listing"
+
 #QRCode gem
 gem 'barby',  '~> 0.6.2'
 gem 'rqrcode'
@@ -35,7 +38,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
+# gem install bcrypt --platform=ruby
 gem 'bcrypt', platforms: :ruby
 
 # Use Capistrano for deployment
