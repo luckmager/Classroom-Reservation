@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :devices
   resources :options
   resources :buildings
+  get "/admin/:page" => "admin#show"
   get 'buildings/index'
 
   root 'classrooms#index'

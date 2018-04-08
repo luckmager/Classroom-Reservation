@@ -2952,3 +2952,2594 @@ Processing by ClassroomsController#index as HTML
 Completed 200 OK in 150ms (Views: 134.4ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-03-29 18:03:37 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 90ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-29 18:03:47 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.5ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 1021ms (Views: 957.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/sign_up" for 127.0.0.1 at 2018-03-29 18:05:35 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/sign_up"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users/sign_up" for 127.0.0.1 at 2018-03-29 18:09:40 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/sign_up"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:10:54 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request'
+devise (4.4.3) lib/devise/controllers/helpers.rb:255:in `handle_unverified_request'
+actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token'
+activesupport (5.1.5) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.5) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.5) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.5) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:11:46 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request'
+devise (4.4.3) lib/devise/controllers/helpers.rb:255:in `handle_unverified_request'
+actionpack (5.1.5) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token'
+activesupport (5.1.5) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.5) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.5) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.5) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.5) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:13:06 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (111.5ms)
+Completed 200 OK in 703ms (Views: 502.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:14:09 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 321ms (Views: 192.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:15:08 +0200
+  
+ActionController::RoutingError (undefined method `skip_before_filter' for ApplicationController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:15:26 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:16:05 +0200
+Started POST "/users" for 127.0.0.1 at 2018-03-29 18:16:05 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 329ms (Views: 178.7ms | ActiveRecord: 2.0ms)
+
+
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 334ms (Views: 189.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-30 12:18:51 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 982ms (Views: 919.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:19:06 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (120.0ms)
+Completed 200 OK in 525ms (Views: 311.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2018-03-30 12:19:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sign_up"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-03-30 12:19:23 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (372.1ms)
+Completed 200 OK in 1578ms (Views: 1576.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-03-30 12:19:25 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 176ms (Views: 175.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:19:56 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 575ms (Views: 183.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:20:30 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"user[email]"=>"08610220@hr.nl", "user[password]"=>"[FILTERED]", "user[password_confirmation]"=>"[FILTERED]", "registration"=>{"user[email]"=>"08610220@hr.nl", "user[password]"=>"[FILTERED]", "user[password_confirmation]"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 293ms (Views: 168.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:22:38 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 306ms (Views: 170.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:23:05 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "08610220@hr.nl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-03-30 10:23:05.862795"], ["updated_at", "2018-03-30 10:23:05.862795"], ["email", "08610220@hr.nl"], ["encrypted_password", "$2a$11$kgv7dQZCeJp23dKofrz19.NvsQd3o7xm4mpSkNOf5Q4gtjxxATXeC"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-03-30 10:23:05.874798"], ["sign_in_count", 1], ["current_sign_in_at", "2018-03-30 10:23:05.873798"], ["last_sign_in_at", "2018-03-30 10:23:05.873798"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 2]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 281ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-30 12:23:06 +0200
+Processing by ClassroomsController#index as */*
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 431ms (Views: 264.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:23:22 +0200
+Processing by Devise::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"08610220@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "08610220@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 470ms (Views: 198.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:35:28 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 286ms (Views: 166.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:36:17 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 420ms (Views: 165.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-30 12:36:38 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 437ms (Views: 173.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 09:58:56 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 1236ms (Views: 1155.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 10:00:18 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (108.0ms)
+Completed 200 OK in 711ms (Views: 298.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:00:25 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 151ms (Views: 137.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:00:27 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 125ms (Views: 110.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms.json" for 127.0.0.1 at 2018-04-03 10:02:35 +0200
+Processing by ClassroomsController#index as JSON
+  Rendering classrooms/index.json.jbuilder
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/_classroom.json.jbuilder (1.0ms)
+  Rendered classrooms/_classroom.json.jbuilder (0.0ms)
+  Rendered classrooms/index.json.jbuilder (34.0ms)
+Completed 200 OK in 173ms (Views: 154.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms.json" for 127.0.0.1 at 2018-04-03 10:06:43 +0200
+Processing by ClassroomsController#index as JSON
+  Rendering classrooms/index.json.jbuilder
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (81.0ms)
+  [1m[36mCACHE Building Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (2.0ms)
+  Rendered classrooms/index.json.jbuilder (94.0ms)
+Completed 200 OK in 228ms (Views: 212.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms.json" for 127.0.0.1 at 2018-04-03 10:07:01 +0200
+Processing by ClassroomsController#index as JSON
+  Rendering classrooms/index.json.jbuilder
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (35.0ms)
+  [1m[36mCACHE Building Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 2], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (3.0ms)
+  Rendered classrooms/index.json.jbuilder (49.0ms)
+Completed 200 OK in 185ms (Views: 169.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms.json" for 127.0.0.1 at 2018-04-03 10:07:11 +0200
+Processing by ClassroomsController#index as JSON
+  Rendering classrooms/index.json.jbuilder
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (22.0ms)
+  Rendered classrooms/index.json.jbuilder (29.0ms)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `options' for #<Classroom:0xc17f0e8>):
+    1: json.extract! classroom, :id, :name, :created_at, :updated_at, :building, :device, :options
+    2: json.url classroom_url(classroom, format: :json)
+  
+app/views/classrooms/_classroom.json.jbuilder:1:in `_app_views_classrooms__classroom_json_jbuilder___141559211_101446152'
+app/views/classrooms/index.json.jbuilder:1:in `_app_views_classrooms_index_json_jbuilder___623363720_101479176'
+Started GET "/classrooms.json" for 127.0.0.1 at 2018-04-03 10:07:17 +0200
+Processing by ClassroomsController#index as JSON
+  Rendering classrooms/index.json.jbuilder
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (22.0ms)
+  Rendered classrooms/index.json.jbuilder (28.0ms)
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `options' for #<Classroom:0xd3fba98>):
+    1: json.extract! classroom, :id, :name, :created_at, :updated_at, :building, :device, :options
+    2: json.url classroom_url(classroom, format: :json)
+  
+app/views/classrooms/_classroom.json.jbuilder:1:in `_app_views_classrooms__classroom_json_jbuilder___141559211_111138528'
+app/views/classrooms/index.json.jbuilder:1:in `_app_views_classrooms_index_json_jbuilder___623363720_94500684'
+Started GET "/classrooms.json" for 127.0.0.1 at 2018-04-03 10:07:25 +0200
+Processing by ClassroomsController#index as JSON
+  Rendering classrooms/index.json.jbuilder
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (3.0ms)
+  [1m[36mCACHE Building Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 2], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (3.0ms)
+  Rendered classrooms/index.json.jbuilder (17.0ms)
+Completed 200 OK in 152ms (Views: 136.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:12:39 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 138ms (Views: 123.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:13:54 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 421ms (Views: 406.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:14:00 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 188ms (Views: 186.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:14:10 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mTQvXhzNBjKyvXL7CHmCR6wxmlgwcS+LzV9f86mBp/vTvD3OXP8857VknW3cRYVyuLAuf6a8ecNl0Uq/HXkGQw==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 144ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mTQvXhzNBjKyvXL7CHmCR6wxmlgwcS+LzV9f86mBp/vTvD3OXP8857VknW3cRYVyuLAuf6a8ecNl0Uq/HXkGQw==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 307ms (Views: 170.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:14:14 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4xzDpA6i4ubh8HWkvCY5Vvvyw/EaPknzYbIvbsRMJnDms2g9gAmrroNXeR6sYGPiPj2qN1do07vxjJbP23KQXA==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 140ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4xzDpA6i4ubh8HWkvCY5Vvvyw/EaPknzYbIvbsRMJnDms2g9gAmrroNXeR6sYGPiPj2qN1do07vxjJbP23KQXA==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 305ms (Views: 166.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:14:19 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYvDsYdfPgyL8Ic1rJT3o6yK5wWeCCrYqV/N4VPNOKGoJGgoCfR3ROlXi4+80q0XaUWOw9NesJA5YXRATPOOjQ==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 139ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rYvDsYdfPgyL8Ic1rJT3o6yK5wWeCCrYqV/N4VPNOKGoJGgoCfR3ROlXi4+80q0XaUWOw9NesJA5YXRATPOOjQ==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 310ms (Views: 170.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:14:24 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 128ms (Views: 112.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:14:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 174ms (Views: 172.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-03 10:14:27 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 177ms (Views: 176.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 10:14:37 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YarOMVXDfkbab8GOQUG3H+svk4VMOXwaKjlpRTgZ7ouNcTqaIGbvGCi83gqKMHBx15NEO/MqpfBAlzRcwswB9w==", "user"=>{"email"=>"jeremypietersz@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jeremypietersz@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-04-03 08:14:37.533054"], ["updated_at", "2018-04-03 08:14:37.533054"], ["email", "jeremypietersz@hotmail.com"], ["encrypted_password", "$2a$11$9e4QayQqRhW6q4RsN5tT6uFLiIEL6f.Tdo7K6P37vBok1HuDBYCKm"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-04-03 08:14:37.548058"], ["sign_in_count", 1], ["current_sign_in_at", "2018-04-03 08:14:37.547058"], ["last_sign_in_at", "2018-04-03 08:14:37.547058"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 3]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 276ms (ActiveRecord: 19.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:14:37 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 133ms (Views: 117.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:18:09 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 134ms (Views: 118.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:18:16 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 134ms (Views: 116.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:18:39 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 127ms (Views: 111.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:18:41 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 125ms (Views: 110.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:18:48 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 125ms (Views: 110.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:19:10 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 122ms (Views: 108.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:19:21 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 372ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource' for #<#<Class:0x7447428>:0xc967260>):
+    18: 						<li><a href="#" id="loginText">Admin page</a></li>
+    19: 						<% if user_signed_in? %>
+    20: 							<li>
+    21: 								<%= resource.email %>
+    22: 							</li>
+    23: 							<li>
+    24: 								<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  
+app/views/layouts/application.html.erb:21:in `_app_views_layouts_application_html_erb__686568871_105587868'
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:21:45 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 414ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource' for #<#<Class:0x7447428>:0xbbd0aa8>):
+    18: 						<li><a href="#" id="loginText">Admin page</a></li>
+    19: 						<% if user_signed_in? %>
+    20: 							<li>
+    21: 								<%= resource.email %>
+    22: 							</li>
+    23: 							<li>
+    24: 								<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  
+app/views/layouts/application.html.erb:21:in `_app_views_layouts_application_html_erb__686568871_98406900'
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:24:37 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 170ms (Views: 152.0ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-04-03 10:24:40 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LF6+gv0lPLLt83KVXpXQd59ZhtQ34og+a6ExDDjNZoYp8RUbc451+o9Ufi9O04rDWpbvEnq0Enb7n4itJ/PQqg=="}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:24:40 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 136ms (Views: 120.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:24:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 216ms (Views: 214.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:24:53 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k0VcmEsKHzgYQLnu55yIImIT71qIC10G2WzDsDAhJuQ3WChzea4+/b1glo7OBtzIZI4IfpJczXeqLBQ8yrP8Ag==", "user"=>{"email"=>"jeremypietersz@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jeremypietersz@hotmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 141ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k0VcmEsKHzgYQLnu55yIImIT71qIC10G2WzDsDAhJuQ3WChzea4+/b1glo7OBtzIZI4IfpJczXeqLBQ8yrP8Ag==", "user"=>{"email"=>"jeremypietersz@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 298ms (Views: 161.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:24:56 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j7tsTQrrGLGO1f+pxGTbHRxmjuPU4HzmjoSQT/HqjQxjgD528SQUWBUs3viQISN2bCOFV4iyuVGu1tV2GypXlg==", "user"=>{"email"=>"jeremypietersz@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jeremypietersz@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-04-03 08:24:56.688526"], ["sign_in_count", 2], ["updated_at", "2018-04-03 08:24:56.689527"], ["id", 3]]
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 263ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:24:56 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 124ms (Views: 108.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:26:24 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  Rendered classrooms/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/Sites/Classroom-Reservation/app/views/classrooms/index.html.erb:21: syntax error, unexpected keyword_end
+		'.freeze;@output_buffer.append=( end );@output_buffer.safe_append='
+		                                    ^
+C:/Sites/Classroom-Reservation/app/views/classrooms/index.html.erb:23: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+C:/Sites/Classroom-Reservation/app/views/classrooms/index.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+C:/Sites/Classroom-Reservation/app/views/classrooms/index.html.erb:34: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/classrooms/index.html.erb:21: syntax error, unexpected keyword_end
+app/views/classrooms/index.html.erb:23: syntax error, unexpected keyword_end, expecting ')'
+app/views/classrooms/index.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/classrooms/index.html.erb:34: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:26:46 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  Rendered classrooms/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/Sites/Classroom-Reservation/app/views/classrooms/index.html.erb:32: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/classrooms/index.html.erb:32: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:26:58 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 125ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-04-03 10:27:00 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LWOdh78y3hJYC3Y1DVlxamiXqgjSUev+EnAXxgB0T3zjf21HmiUB0bIGnH9BtevsXj6NkuoS1+mfjHjLDJAxdQ=="}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:27:00 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 134ms (Views: 118.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:27:23 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 129ms (Views: 113.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:27:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 166ms (Views: 165.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:27:37 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TSMf69ifD+qrnQtiSHaYLjBaxz0T3Vz02yClysM7TZHIKqlcO4ExD+gkwrqumiqQdr3QWwIgXvEIhlYS5PsKIA==", "user"=>{"email"=>"jeremypietersz@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jeremypietersz@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-04-03 08:27:38.010335"], ["last_sign_in_at", "2018-04-03 08:24:56.688526"], ["sign_in_count", 3], ["updated_at", "2018-04-03 08:27:38.011336"], ["id", 3]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 267ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:27:38 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 128ms (Views: 113.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-04-03 10:29:02 +0200
+Processing by BuildingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 169ms (Views: 115.9ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-04-03 10:29:06 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kabQU7g8+eLM3DuF5deIM60FqouVpETfe/o887ICqYewKJN44tYUQ60U4V+xJJfcQbucvLTWC+1v2nj0OOOONQ=="}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-03 10:29:06 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 136ms (Views: 117.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-04-03 10:29:10 +0200
+Processing by BuildingsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:29:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 168ms (Views: 166.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:30:13 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 149ms (Views: 130.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:30:14 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (47.9ms)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (no method name given):
+     6:   <strong>Name:</strong>
+     7:   <%= @classroom.name %><br />
+     8:   <strong>Temperature:</strong>
+     9:   <%= @classroom.try.device.temperature if @classroom.device %>
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+  
+app/views/classrooms/show.html.erb:9:in `_app_views_classrooms_show_html_erb__802503949_116321904'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:31:02 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (16.0ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (no method name given):
+     6:   <strong>Name:</strong>
+     7:   <%= @classroom.name %><br />
+     8:   <strong>Temperature:</strong>
+     9:   <%= @classroom.try.device.temperature %>
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+  
+app/views/classrooms/show.html.erb:9:in `_app_views_classrooms_show_html_erb__802503949_107742180'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:31:32 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 136ms (Views: 117.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:33:09 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 131ms (Views: 115.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:33:14 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 125ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:33:17 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 136ms (Views: 121.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:33:25 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 126ms (Views: 112.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:33:26 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 132ms (Views: 115.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:35:30 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 134ms (Views: 117.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:35:32 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 128ms (Views: 113.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-04-03 10:35:39 +0200
+Processing by DevicesController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 10:35:39 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 184ms (Views: 165.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 10:35:50 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 129ms (Views: 114.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:36:58 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 136ms (Views: 119.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1.json" for 127.0.0.1 at 2018-04-03 10:37:00 +0200
+Processing by ClassroomsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.json.jbuilder
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_classroom.json.jbuilder (3.0ms)
+  Rendered classrooms/show.json.jbuilder (10.0ms)
+Completed 200 OK in 149ms (Views: 129.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:48:35 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (452.1ms)
+Completed 200 OK in 627ms (Views: 579.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:49:29 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (code length overflow. (324>288). (Try a larger size!)):
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+    13: <%= qr = RQRCode::QRCode.new( 'http://localhost:3000/classrooms/1.json', :size => 4, :level => :h ) %>
+    14: qr.modules.each do |row|
+    15:     row.each do |col| 
+    16:         print col ? "X" : " "
+  
+app/views/classrooms/show.html.erb:13:in `new'
+app/views/classrooms/show.html.erb:13:in `_app_views_classrooms_show_html_erb__537966368_103434804'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:49:43 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (119.0ms)
+Completed 200 OK in 255ms (Views: 238.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:50:44 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.5ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 161ms (Views: 144.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:51:46 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (56.0ms)
+Completed 500 Internal Server Error in 134ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `>' for #<Array:0xd70cec8>):
+    16:         <%= print col ? "X" : " " %>
+    17:     <% end >%
+    18:     <%= print "\n" %>
+    19: <% end %>
+    20: <% if user_signed_in? %>
+    21: 	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+    22: <% end %>
+  
+app/views/classrooms/show.html.erb:19:in `block in _app_views_classrooms_show_html_erb__537966368_111235032'
+app/views/classrooms/show.html.erb:14:in `each'
+app/views/classrooms/show.html.erb:14:in `_app_views_classrooms_show_html_erb__537966368_111235032'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:51:59 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 194ms (Views: 177.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:56:14 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (100.0ms)
+Completed 500 Internal Server Error in 193ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (No such file or directory @ rb_sysopen - /tmp/github-qrcode.png):
+    21:           module_px_size: 6,
+    22:           file: nil # path to write
+    23:           ) %>
+    24: <%= IO.write("/tmp/github-qrcode.png", png.to_s) %>
+    25: <% if user_signed_in? %>
+    26: 	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+    27: <% end %>
+  
+app/views/classrooms/show.html.erb:24:in `write'
+app/views/classrooms/show.html.erb:24:in `_app_views_classrooms_show_html_erb__537966368_121057536'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:56:47 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (76.0ms)
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No such file or directory @ rb_sysopen - /tmp/github-qrcode.png):
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+    13: <%= qrcode = RQRCode::QRCode.new("http://github.com/") %>
+    14: <%= png = qrcode.as_png(
+    15:           resize_gte_to: false,
+    16:           resize_exactly_to: false,
+    17:           fill: 'white',
+  
+app/views/classrooms/show.html.erb:14:in `_app_views_classrooms_show_html_erb__537966368_101755200'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:57:14 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (68.0ms)
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (No such file or directory @ rb_sysopen - /tmp/github-qrcode.png):
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+    13: <%= qrcode = RQRCode::QRCode.new("http://github.com/") %>
+    14: <%= png = qrcode.as_png(
+    15:           resize_gte_to: false,
+    16:           resize_exactly_to: false,
+    17:           fill: 'white',
+  
+app/views/classrooms/show.html.erb:14:in `_app_views_classrooms_show_html_erb__537966368_109094988'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:59:20 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 245ms (Views: 144.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 10:59:30 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.5ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 196ms (Views: 117.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:00:53 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 398ms (Views: 325.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:02:48 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 278ms (Views: 196.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:03:02 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 273ms (Views: 195.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:04:47 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (284>208). (Try a larger size!)):
+  
+app/controllers/classrooms_controller.rb:15:in `new'
+app/controllers/classrooms_controller.rb:15:in `show'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:04:58 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 267ms (Views: 148.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:06:16 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 2.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /tmp/github-qrcode.png):
+  
+app/controllers/classrooms_controller.rb:26:in `write'
+app/controllers/classrooms_controller.rb:26:in `show'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:06:40 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /tmp/github-qrcode.png):
+  
+app/controllers/classrooms_controller.rb:16:in `show'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:07:27 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 2.0ms)
+
+
+  
+NoMethodError (undefined method `as_ansi_' for #<RQRCode::QRCode:0xcdb3048>
+Did you mean?  as_ansi):
+  
+app/controllers/classrooms_controller.rb:16:in `show'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:07:46 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 217ms (Views: 139.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:08:30 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (267.1ms)
+Completed 500 Internal Server Error in 397ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `svg' for #<#<Class:0xd75f080>:0x7539a50>):
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+    13: <%= svg %>
+    14: <% if user_signed_in? %>
+    15: 	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+    16: <% end %>
+  
+app/views/classrooms/show.html.erb:13:in `_app_views_classrooms_show_html_erb__537966368_61490508'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:08:43 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 217ms (Views: 142.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:09:07 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 241ms (Views: 148.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:09:50 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (147.0ms)
+Completed 500 Internal Server Error in 284ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `show_svg' for #<#<Class:0xd668fd8>:0x8b76100>):
+    10: </p>
+    11: 
+    12: <%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+    13: <%= show_svg(@svg) %>
+    14: <% if user_signed_in? %>
+    15: 	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+    16: <% end %>
+  
+app/views/classrooms/show.html.erb:13:in `_app_views_classrooms_show_html_erb__537966368_74654916'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:12:52 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 184ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `text' for #<ClassroomsController:0x61d8db8>
+Did you mean?  test):
+  
+app/controllers/classrooms_controller.rb:18:in `show'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:13:28 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (414.1ms)
+Completed 200 OK in 694ms (Views: 559.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:13:59 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 233ms (ActiveRecord: 1.0ms)
+
+
+  
+SyntaxError (C:/Sites/Classroom-Reservation/app/views/classrooms/show.html.erb:13: syntax error, unexpected ':', expecting '}'
+...output_buffer.append=( img{src: generate_qr("http://www.leig...
+...                               ^
+C:/Sites/Classroom-Reservation/app/views/classrooms/show.html.erb:13: syntax error, unexpected ',', expecting '}'
+...http://www.leighhalliday.com"), class: "qr-code"} );@output_...
+...                               ^):
+  
+app/views/classrooms/show.html.erb:13: syntax error, unexpected ':', expecting '}'
+app/views/classrooms/show.html.erb:13: syntax error, unexpected ',', expecting '}'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:16:15 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 3.0ms)
+
+
+  
+SyntaxError (C:/Sites/Classroom-Reservation/app/views/classrooms/show.html.erb:13: syntax error, unexpected ':', expecting '}'
+...output_buffer.append=( img{src: generate_qr("http://www.leig...
+...                               ^
+C:/Sites/Classroom-Reservation/app/views/classrooms/show.html.erb:13: syntax error, unexpected ',', expecting '}'
+...http://www.leighhalliday.com"), class: "qr-code"} );@output_...
+...                               ^):
+  
+app/views/classrooms/show.html.erb:13: syntax error, unexpected ':', expecting '}'
+app/views/classrooms/show.html.erb:13: syntax error, unexpected ',', expecting '}'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:16:33 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 158ms (Views: 141.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:17:19 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  Rendered classrooms/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/Sites/Classroom-Reservation/app/views/classrooms/show.html.erb:13: syntax error, unexpected ':', expecting '}'
+...output_buffer.append=( img{src: generate_qr("http://www.leig...
+...                               ^
+C:/Sites/Classroom-Reservation/app/views/classrooms/show.html.erb:13: syntax error, unexpected ',', expecting '}'
+...http://www.leighhalliday.com"), class: "qr-code"} );@output_...
+...                               ^):
+  
+app/views/classrooms/show.html.erb:13: syntax error, unexpected ':', expecting '}'
+app/views/classrooms/show.html.erb:13: syntax error, unexpected ',', expecting '}'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:18:19 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (109.0ms)
+Completed 200 OK in 259ms (Views: 243.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:20:29 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (119.0ms)
+Completed 200 OK in 252ms (Views: 234.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:21:29 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (112.0ms)
+Completed 200 OK in 237ms (Views: 221.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:24:08 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (115.0ms)
+Completed 200 OK in 251ms (Views: 233.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:24:11 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (116.0ms)
+Completed 200 OK in 246ms (Views: 230.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 11:24:54 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 130ms (Views: 114.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 11:25:07 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 190ms (Views: 172.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-04-03 11:25:09 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (107.0ms)
+Completed 200 OK in 231ms (Views: 215.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 11:25:22 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 139ms (Views: 123.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 11:25:23 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 237ms (Views: 211.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2018-04-03 11:27:46 +0200
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 205ms (Views: 177.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 11:28:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 180ms (Views: 178.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 11:29:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 168ms (Views: 166.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 11:34:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 172ms (Views: 170.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-03 11:39:23 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 168ms (Views: 167.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-03 11:39:33 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 166ms (Views: 165.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 11:40:19 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 165ms (Views: 163.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 11:40:35 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt_ext):
+  
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:16:in `rescue in <top (required)>'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:12:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/encryptor.rb:3:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:167:in `password_digest'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:47:in `password='
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `public_send'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `each'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+activerecord (5.1.5) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+activerecord (5.1.5) lib/active_record/core.rb:337:in `initialize'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+devise (4.4.3) lib/devise/models/registerable.rb:22:in `new_with_session'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:103:in `build_resource'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:17:in `create'
+actionpack (5.1.5) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.5) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 11:41:04 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt_ext):
+  
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:16:in `rescue in <top (required)>'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:12:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/encryptor.rb:3:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:167:in `password_digest'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:47:in `password='
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `public_send'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `each'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+activerecord (5.1.5) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+activerecord (5.1.5) lib/active_record/core.rb:337:in `initialize'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+devise (4.4.3) lib/devise/models/registerable.rb:22:in `new_with_session'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:103:in `build_resource'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:17:in `create'
+actionpack (5.1.5) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.5) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 11:41:43 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt_ext):
+  
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:16:in `rescue in <top (required)>'
+bcrypt-3.1.11-x86 (mingw32) lib/bcrypt.rb:12:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/encryptor.rb:3:in `<top (required)>'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `block in require'
+activesupport (5.1.5) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.5) lib/active_support/dependencies.rb:292:in `require'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:167:in `password_digest'
+devise (4.4.3) lib/devise/models/database_authenticatable.rb:47:in `password='
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `public_send'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `each'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+activerecord (5.1.5) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+activemodel (5.1.5) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+activerecord (5.1.5) lib/active_record/core.rb:337:in `initialize'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+activerecord (5.1.5) lib/active_record/inheritance.rb:66:in `new'
+devise (4.4.3) lib/devise/models/registerable.rb:22:in `new_with_session'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:103:in `build_resource'
+devise (4.4.3) app/controllers/devise/registrations_controller.rb:17:in `create'
+actionpack (5.1.5) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.5) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.5) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.5) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.5) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.5) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.5) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.5) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-04-03 11:43:45 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 11:43:54 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost:8079) didn't match request.base_url (http://localhost:3000)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (5.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 9634ms (Views: 551.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-03 11:44:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 193ms (Views: 191.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-03 11:44:32 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 174ms (Views: 142.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-08 23:53:00 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (24.0ms)
+Completed 500 Internal Server Error in 883ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  C:/Sites/Classroom-Reservation/app/assets/config
+  C:/Sites/Classroom-Reservation/app/assets/images
+  C:/Sites/Classroom-Reservation/app/assets/javascripts
+  C:/Sites/Classroom-Reservation/app/assets/stylesheets
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/smart_listing-1.2.2/app/assets/javascripts
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.5/lib/assets/compiled
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.5/lib/assets/compiled
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  C:/Sites/Classroom-Reservation/node_modules):
+    4:     <title>ClassroomView</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:16
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___421032091_59006520'
+Started GET "/" for 127.0.0.1 at 2018-04-08 23:53:44 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery_ujs' with type 'application/javascript'
+Checked in these paths: 
+  C:/Sites/Classroom-Reservation/app/assets/config
+  C:/Sites/Classroom-Reservation/app/assets/images
+  C:/Sites/Classroom-Reservation/app/assets/javascripts
+  C:/Sites/Classroom-Reservation/app/assets/stylesheets
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/smart_listing-1.2.2/app/assets/javascripts
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actioncable-5.1.5/lib/assets/compiled
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.1.5/lib/assets/compiled
+  C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  C:/Sites/Classroom-Reservation/node_modules):
+    4:     <title>ClassroomView</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:16
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___421032091_105092856'
+Started GET "/" for 127.0.0.1 at 2018-04-08 23:53:56 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5663ms (Views: 5650.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-08 23:57:04 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 771ms (Views: 738.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-04-08 23:57:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admins" for 127.0.0.1 at 2018-04-08 23:57:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/admins"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-04-09 00:01:58 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-04-09 00:03:25 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/about" for 127.0.0.1 at 2018-04-09 00:03:28 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering admin/about.html.erb within layouts/application
+  Rendered admin/about.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 372ms (Views: 371.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-04-09 00:04:07 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 184ms (Views: 182.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-04-09 00:07:16 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 181ms (Views: 179.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-04-09 00:07:24 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 159ms (Views: 158.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-04-09 00:07:26 +0200
+Processing by BuildingsController#index as HTML
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-09 00:07:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 332ms (Views: 307.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-04-09 00:07:29 +0200
+Processing by OptionsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-09 00:07:29 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 261ms (Views: 260.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-09 00:07:35 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WLQHi5gGe2orQ8j3s5RIbtjehaElyex6zv0YJ30h7QgVMsHz5NSCKeMUO8jdxLzWoRDxogwHqm+f2q1kLP/5yw==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 202ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WLQHi5gGe2orQ8j3s5RIbtjehaElyex6zv0YJ30h7QgVMsHz5NSCKeMUO8jdxLzWoRDxogwHqm+f2q1kLP/5yw==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 395ms (Views: 258.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-09 00:07:44 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/xL1UmEv0thH+fy/DWDZsFoaA2hNTSM2DFGq+RSY7k1gymZWTMP7ddmo9LVmujOvYnoss3N2i0OTo30hXtfRkQ==", "user"=>{"email"=>"jeremypietersz@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jeremypietersz@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-04-08 22:07:45.133578"], ["last_sign_in_at", "2018-04-03 08:27:38.010335"], ["sign_in_count", 4], ["updated_at", "2018-04-08 22:07:45.134579"], ["id", 3]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/options
+Completed 302 Found in 403ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-04-09 00:07:45 +0200
+Processing by OptionsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering options/index.html.erb within layouts/application
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT "options".* FROM "options"[0m
+  Rendered options/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 188ms (Views: 158.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/options/new" for 127.0.0.1 at 2018-04-09 00:07:47 +0200
+Processing by OptionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering options/new.html.erb within layouts/application
+  Rendered options/_form.html.erb (2.0ms)
+  Rendered options/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 213ms (Views: 187.8ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/options" for 127.0.0.1 at 2018-04-09 00:07:51 +0200
+Processing by OptionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MUD306tkyT1VS3wvJvB2FHbiIpPZU5FItNB2D0ZtfNC+xP1CZyQbKNQkJEnD/0P0ZrTFcUpf4nVewv8XdJd38w==", "option"=>{"name"=>"Test"}, "commit"=>"Create Option"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "options" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test"], ["created_at", "2018-04-08 22:07:51.736190"], ["updated_at", "2018-04-08 22:07:51.736190"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/options/1
+Completed 302 Found in 12ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/options/1" for 127.0.0.1 at 2018-04-09 00:07:51 +0200
+Processing by OptionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT  "options".* FROM "options" WHERE "options"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering options/show.html.erb within layouts/application
+  Rendered options/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 189ms (Views: 157.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-04-09 00:07:53 +0200
+Processing by OptionsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering options/index.html.erb within layouts/application
+  [1m[36mOption Load (0.0ms)[0m  [1m[34mSELECT "options".* FROM "options"[0m
+  Rendered options/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 172ms (Views: 157.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/options/new" for 127.0.0.1 at 2018-04-09 00:07:54 +0200
+Processing by OptionsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering options/new.html.erb within layouts/application
+  Rendered options/_form.html.erb (2.0ms)
+  Rendered options/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 195ms (Views: 179.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/options" for 127.0.0.1 at 2018-04-09 00:07:56 +0200
+Processing by OptionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/JrbBgEXqkTgYt5V/RcG8FJSaQuOrJ4XTOIUGbULzmtzHtGXzVd4UWENhjMYGDMQQgSO6R2g7Sqm8J0Bh/HFSA==", "option"=>{"name"=>"Test2"}, "commit"=>"Create Option"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "options" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test2"], ["created_at", "2018-04-08 22:07:56.318307"], ["updated_at", "2018-04-08 22:07:56.318307"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/options/2
+Completed 302 Found in 13ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/options/2" for 127.0.0.1 at 2018-04-09 00:07:56 +0200
+Processing by OptionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mOption Load (1.0ms)[0m  [1m[34mSELECT  "options".* FROM "options" WHERE "options"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering options/show.html.erb within layouts/application
+  Rendered options/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 181ms (Views: 165.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/options" for 127.0.0.1 at 2018-04-09 00:07:57 +0200
+Processing by OptionsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering options/index.html.erb within layouts/application
+  [1m[36mOption Load (1.0ms)[0m  [1m[34mSELECT "options".* FROM "options"[0m
+  Rendered options/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 180ms (Views: 162.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-09 00:07:59 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 197ms (Views: 170.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-09 00:08:00 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 181ms (Views: 165.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-04-09 00:10:01 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 179ms (Views: 163.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-04-09 00:10:03 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 159ms (Views: 158.3ms | ActiveRecord: 0.0ms)
+
+
