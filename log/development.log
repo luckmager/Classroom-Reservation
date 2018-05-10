@@ -5543,3 +5543,1251 @@ Processing by AdminController#show as HTML
 Completed 200 OK in 159ms (Views: 158.3ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180315181113)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" integer, "to" integer, "user_id" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_classroom_id" ON "reservations" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181113"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_8f5f78db7f"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319080309"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180319081732)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "auth" varchar, "temperature" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_940c8a6313"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319081732"]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20180329112410)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180329112410"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-10 09:04:39.718954"], ["updated_at", "2018-05-10 09:04:39.718954"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-05-10 11:06:58 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 933ms (Views: 877.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 11:07:15 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/reservations"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_8f5f78db7f"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319080309"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180319081732)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "auth" varchar, "temperature" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_940c8a6313"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319081732"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20180329112410)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180329112410"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180510091212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "from" integer, "to" integer, "user_id" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_classroom_id" ON "reservations" ("classroom_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180510091212"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-10 09:16:31.234529"], ["updated_at", "2018-05-10 09:16:31.234529"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 11:22:22 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  Rendered reservations/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 990ms (Views: 957.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCalendars (20180212102017)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "calendars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom" varchar, "startTime" varchar, "endTime" varchar, "reservation" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212102017"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassrooms (20180315175543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b0064b7304"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_classrooms_on_building_id" ON "classrooms" ("building_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315175543"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180315181100)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "username" varchar, "password" varchar, "role" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180315181100"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBuildings (20180319074157)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319074157"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptions (20180319080309)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_8f5f78db7f"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_options_on_classroom_id" ON "options" ("classroom_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319080309"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDevices (20180319081732)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "auth" varchar, "temperature" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_940c8a6313"
+FOREIGN KEY ("classroom_id")
+  REFERENCES "classrooms" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_devices_on_classroom_id" ON "devices" ("classroom_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180319081732"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20180329112410)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" varchar[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180329112410"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20180510091212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "title" varchar, "description" varchar, "from" integer, "to" integer, "user_id" integer, "classroom_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_classroom_id" ON "reservations" ("classroom_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180510091212"]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-10 09:25:40.322067"], ["updated_at", "2018-05-10 09:25:40.322067"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_classrooms_on_building_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_devices_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_options_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_classroom_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:04:32 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 417ms (Views: 382.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-05-10 12:04:44 +0200
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (91.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (120.0ms)
+Completed 200 OK in 312ms (Views: 284.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:04:49 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 172ms (Views: 158.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-05-10 12:04:50 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 163ms (Views: 161.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-05-10 12:05:18 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 372ms (Views: 371.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-05-10 12:05:22 +0200
+Processing by BuildingsController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-10 12:05:22 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 315ms (Views: 290.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-10 12:08:34 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 734ms (Views: 705.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-10 12:09:24 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 560ms (Views: 530.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-10 12:09:39 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+HTTP Origin header (http://localhost) didn't match request.base_url (http://localhost:3000)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-05-10 10:09:39.395096"], ["updated_at", "2018-05-10 10:09:39.395096"], ["email", "0861020@hr.nl"], ["encrypted_password", "$2a$11$9JyLjoRhMskRA5GOQ8kA3O5Vcq0oA1kOFLzqeTCFuHQL6H4rPogv2"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-05-10 10:09:39.405098"], ["sign_in_count", 1], ["current_sign_in_at", "2018-05-10 10:09:39.404098"], ["last_sign_in_at", "2018-05-10 10:09:39.404098"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 476ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-10 12:09:39 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 193ms (Views: 165.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-10 12:09:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 261ms (Views: 260.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-10 12:09:51 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7y/yxl9Z6a6G26C+RW34XHKZX+fh6qOTc9U1qu7RJXfKkc2ZwKqkE0g1Iov3/F+gSWbG63TTwAfF2lRqVu591A==", "user"=>{"email"=>"0861020@hr.nl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "0861020@hr.nl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-10 10:09:51.363463"], ["sign_in_count", 2], ["updated_at", "2018-05-10 10:09:51.364464"], ["id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings
+Completed 302 Found in 403ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-05-10 12:09:51 +0200
+Processing by BuildingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 178ms (Views: 159.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-05-10 12:09:53 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 165ms (Views: 164.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-05-10 12:09:54 +0200
+Processing by BuildingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 173ms (Views: 158.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/buildings/new" for 127.0.0.1 at 2018-05-10 12:09:55 +0200
+Processing by BuildingsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/new.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (2.0ms)
+  Rendered buildings/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 191ms (Views: 172.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/buildings" for 127.0.0.1 at 2018-05-10 12:09:59 +0200
+Processing by BuildingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BVBfX02kwxfMLouI4dHxEqu8F0m9XX2ksFU/Ih5tcKxwd5220c5YmeTG7Rx35FozN+TnOb7Vr9WD1wwu9KCaHA==", "building"=>{"name"=>"Wijnhaven"}, "commit"=>"Create Building"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Wijnhaven"], ["created_at", "2018-05-10 10:09:59.925581"], ["updated_at", "2018-05-10 10:09:59.925581"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/buildings/1
+Completed 302 Found in 12ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/buildings/1" for 127.0.0.1 at 2018-05-10 12:09:59 +0200
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 190ms (Views: 161.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2018-05-10 12:10:01 +0200
+Processing by BuildingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered buildings/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 175ms (Views: 159.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:03 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 179ms (Views: 166.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2018-05-10 12:10:04 +0200
+Processing by ClassroomsController#new as HTML
+  Rendering classrooms/new.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (5.0ms)
+  Rendered classrooms/new.html.erb within layouts/application (19.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 199ms (Views: 181.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:08 +0200
+Processing by ClassroomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"25BE1zvZRuamOnCMZQcyTpjwr4h2PTJhSCxMGklk4jEBjnkVB0fXYB3iYhk5NRcQRs9vWXfl9KeKJ9bIPTKDuQ==", "classroom"=>{"building_id"=>"1", "name"=>"H4"}, "commit"=>"Create Classroom"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "classrooms" ("name", "building_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "H4"], ["building_id", 1], ["created_at", "2018-05-10 10:10:08.638453"], ["updated_at", "2018-05-10 10:10:08.638453"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/classrooms/1
+Completed 302 Found in 52ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:10:08 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (163.0ms)
+Completed 200 OK in 357ms (Views: 342.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:15 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 176ms (Views: 161.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:17 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 173ms (Views: 158.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1/edit" for 127.0.0.1 at 2018-05-10 12:10:24 +0200
+Processing by ClassroomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/edit.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  Rendered classrooms/_form.html.erb (3.0ms)
+  Rendered classrooms/edit.html.erb within layouts/application (16.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 194ms (Views: 171.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:29 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 174ms (Views: 159.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-05-10 12:10:31 +0200
+Processing by AdminController#show as HTML
+  Parameters: {"page"=>"dashboard"}
+  Rendering admin/dashboard.html.erb within layouts/application
+  Rendered admin/dashboard.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 167ms (Views: 165.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-05-10 12:10:33 +0200
+Processing by DevicesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 188ms (Views: 162.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/devices/new" for 127.0.0.1 at 2018-05-10 12:10:35 +0200
+Processing by DevicesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devices/new.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  Rendered devices/_form.html.erb (4.0ms)
+  Rendered devices/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 219ms (Views: 191.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/devices" for 127.0.0.1 at 2018-05-10 12:10:40 +0200
+Processing by DevicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KEACIZ352JBA1mb7dyeAKHL2t5n+7SOE+SOA5ckqhkmDBwXk1L9Xj7bRcX3ikYsdyATSxt+GTqJ75kre3fzYDA==", "device"=>{"classroom_id"=>"1", "name"=>"Rasp"}, "commit"=>"Create Device"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "devices" ("name", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Rasp"], ["classroom_id", 1], ["created_at", "2018-05-10 10:10:40.972737"], ["updated_at", "2018-05-10 10:10:40.972737"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/devices/1
+Completed 302 Found in 15ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/devices/1" for 127.0.0.1 at 2018-05-10 12:10:40 +0200
+Processing by DevicesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devices/show.html.erb within layouts/application
+  Rendered devices/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 198ms (Views: 173.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2018-05-10 12:10:43 +0200
+Processing by DevicesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devices/index.html.erb within layouts/application
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  Rendered devices/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 177ms (Views: 160.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:46 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 175ms (Views: 160.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms" for 127.0.0.1 at 2018-05-10 12:10:55 +0200
+Processing by ClassroomsController#index as HTML
+  Rendering classrooms/index.html.erb within layouts/application
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT "classrooms".* FROM "classrooms"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 172ms (Views: 157.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:10:58 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (110.0ms)
+Completed 200 OK in 287ms (Views: 271.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:24:21 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_form.html.erb (283.1ms)
+  Rendered classrooms/show.html.erb within layouts/application (408.1ms)
+Completed 500 Internal Server Error in 533ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `classroom' for #<#<Class:0xc3cd5a8>:0xcbdad70>
+Did you mean?  @classroom):
+    1: <%= form_with(model: classroom, local: true) do |form| %>
+    2:   <% if classroom.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(classroom.errors.count, "error") %> prohibited this classroom from being saved:</h2>
+  
+app/views/classrooms/_form.html.erb:1:in `_app_views_classrooms__form_html_erb__408715988_114259836'
+app/views/classrooms/show.html.erb:19:in `_app_views_classrooms_show_html_erb__962242704_106879428'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:25:22 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_reservation_form.html.erb (16.0ms)
+  Rendered classrooms/show.html.erb within layouts/application (148.0ms)
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_with(model: reservation, local: true) do |form| %>
+    2:   <% if reservation.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being booked:</h2>
+    5: 
+  
+app/views/classrooms/_reservation_form.html.erb:2:in `block in _app_views_classrooms__reservation_form_html_erb__75981991_104771724'
+app/views/classrooms/_reservation_form.html.erb:1:in `_app_views_classrooms__reservation_form_html_erb__75981991_104771724'
+app/views/classrooms/show.html.erb:19:in `_app_views_classrooms_show_html_erb__962242704_75100248'
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:26:18 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_reservation_form.html.erb (3.0ms)
+  Rendered classrooms/show.html.erb within layouts/application (184.0ms)
+Completed 200 OK in 397ms (Views: 350.5ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 12:28:00 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"esVCJ5NdeAxiJcnlVDZIoUqBNFXOVBQFqEa+kSA0DhmwlAc9bSbILHw1ECjXthCKfEzMSFx7YZRLofS3q7fL9Q==", "reservation"=>{"date"=>"20-01-2018", "title"=>"Test", "from"=>"1", "to"=>"2"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (10.0ms)
+  Rendered reservations/new.html.erb within layouts/application (24.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 199ms (Views: 193.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:29:13 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_reservation_form.html.erb (3.0ms)
+  Rendered classrooms/show.html.erb within layouts/application (141.0ms)
+Completed 200 OK in 317ms (Views: 300.2ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 12:32:27 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0/guT0W3QTP6n2YeCViM9q+y8jN/OddRp9uoR/eD7MMZqWtVu8zxE+SPv9OK2NTdmX8KLu0WosBEPOJhfAApLw==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"20-05-2018", "title"=>"Test", "from"=>"1", "to"=>"3"}, "commit"=>"Create Reservation"}
+Unpermitted parameters: :user_id, :classroom_id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (3.0ms)
+  Rendered reservations/new.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 188ms (Views: 183.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 12:32:56 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0/guT0W3QTP6n2YeCViM9q+y8jN/OddRp9uoR/eD7MMZqWtVu8zxE+SPv9OK2NTdmX8KLu0WosBEPOJhfAApLw==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"20-05-2018", "title"=>"Test", "from"=>"1", "to"=>"3"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "reservations" ("date", "title", "from", "to", "user_id", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2018-05-20"], ["title", "Test"], ["from", 1], ["to", 3], ["user_id", 1], ["classroom_id", 1], ["created_at", "2018-05-10 10:32:56.562004"], ["updated_at", "2018-05-10 10:32:56.562004"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/reservations/1
+Completed 302 Found in 58ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/reservations/1" for 127.0.0.1 at 2018-05-10 12:32:56 +0200
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReservation Load (1.0ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 179ms (Views: 162.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 12:33:00 +0200
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  Rendered reservations/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 177ms (Views: 163.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 12:53:08 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0/guT0W3QTP6n2YeCViM9q+y8jN/OddRp9uoR/eD7MMZqWtVu8zxE+SPv9OK2NTdmX8KLu0WosBEPOJhfAApLw==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"20-05-2018", "title"=>"Test", "from"=>"3", "to"=>"1"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (4.0ms)
+  Rendered reservations/new.html.erb within layouts/application (18.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 231ms (Views: 180.1ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 12:53:19 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lybaHQF7me9TJl0eESomKzwsRalHtZ5JRx+KHqpou/tdd58H/wApz002hNOSqn4ACuG9tNWa69ik+MA4Iet+Fw==", "reservation"=>{"date"=>"20-05-2018", "title"=>"Test", "description"=>"wqq", "from"=>"2", "to"=>"4"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (4.0ms)
+  Rendered reservations/new.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 184ms (Views: 179.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 12:53:22 +0200
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  Rendered reservations/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 180ms (Views: 166.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:53:26 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_reservation_form.html.erb (3.0ms)
+  Rendered classrooms/show.html.erb within layouts/application (151.0ms)
+Completed 200 OK in 328ms (Views: 313.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2018-05-10 12:53:57 +0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (1.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering classrooms/show.html.erb within layouts/application
+  [1m[36mBuilding Load (0.0ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.0ms)[0m  [1m[34mSELECT  "devices".* FROM "devices" WHERE "devices"."classroom_id" = ? LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered classrooms/_reservation_form.html.erb (2.0ms)
+  Rendered classrooms/show.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 307ms (Views: 291.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 12:54:10 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"2", "to"=>"4"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "reservations" ("date", "title", "description", "from", "to", "user_id", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2018-05-21"], ["title", "Test2"], ["description", "Test2"], ["from", 2], ["to", 4], ["user_id", 1], ["classroom_id", 1], ["created_at", "2018-05-10 10:54:10.063631"], ["updated_at", "2018-05-10 10:54:10.063631"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/reservations/2
+Completed 302 Found in 16ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/reservations/2" for 127.0.0.1 at 2018-05-10 12:54:10 +0200
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 187ms (Views: 170.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 12:54:12 +0200
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (1.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  Rendered reservations/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 175ms (Views: 159.4ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 13:00:40 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"2", "to"=>"7"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 2.0ms)
+
+
+  
+NameError (undefined local variable or method `tom' for #<Reservation:0xcc64200>
+Did you mean?  to
+               to_model
+               to=
+               to?):
+  
+app/models/reservation.rb:17:in `is_booked'
+app/controllers/reservations_controller.rb:30:in `block in create'
+app/controllers/reservations_controller.rb:29:in `create'
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 13:00:52 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"2", "to"=>"7"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (4.0ms)
+  Rendered reservations/new.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 240ms (Views: 184.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 13:04:29 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"2", "to"=>"7"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."date" = ? LIMIT ?[0m  [["date", "2018-05-21"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (3.0ms)
+  Rendered reservations/new.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 238ms (Views: 178.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 13:05:48 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"2", "to"=>"7"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."date" = ? LIMIT ?[0m  [["date", "2018-05-21"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `each' for #<Reservation:0xd1e8480>):
+  
+app/models/reservation.rb:18:in `is_booked'
+app/controllers/reservations_controller.rb:30:in `block in create'
+app/controllers/reservations_controller.rb:29:in `create'
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 13:06:44 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"2", "to"=>"7"}, "commit"=>"Create Reservation"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."date" = ?[0m  [["date", "2018-05-21"]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (3.0ms)
+  Rendered reservations/new.html.erb within layouts/application (19.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 256ms (Views: 197.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 13:06:50 +0200
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  Rendered reservations/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 183ms (Views: 168.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-05-10 13:07:05 +0200
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0IDWWtEe6b/thHE3mlXrMVOmrtaq6XsrjCm48ZOtUnIa0ZNAL2VZn/OUqPoZ1bMaZWtWyzjGDrpvzvLXGC6Xng==", "reservation"=>{"user_id"=>"1", "classroom_id"=>"1", "date"=>"21-05-2018", "title"=>"Test2", "description"=>"Test2", "from"=>"5", "to"=>"7"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClassroom Load (0.0ms)[0m  [1m[34mSELECT  "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."date" = ?[0m  [["date", "2018-05-21"]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "reservations" ("date", "title", "description", "from", "to", "user_id", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2018-05-21"], ["title", "Test2"], ["description", "Test2"], ["from", 5], ["to", 7], ["user_id", 1], ["classroom_id", 1], ["created_at", "2018-05-10 11:07:05.292501"], ["updated_at", "2018-05-10 11:07:05.292501"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/reservations/3
+Completed 302 Found in 16ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/reservations/3" for 127.0.0.1 at 2018-05-10 13:07:05 +0200
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mReservation Load (1.0ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 186ms (Views: 169.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-05-10 13:07:07 +0200
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  Rendered reservations/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 175ms (Views: 160.6ms | ActiveRecord: 0.0ms)
+
+
