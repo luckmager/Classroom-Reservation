@@ -12,18 +12,13 @@
   <% end %>
   
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :reservation_user_id %>
-  </div>
-  
-  <div class="field">
     <%= form.label :classroom_id %>
     <%= form.text_field :classroom_id, id: :reservation_classroom_id %>
   </div>
   
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date, id: :reservation_date %>
+	<%= form.label :date %>
+    <%= form.text_field :date, data:{ provide:'datepicker' } %>
   </div>
   
   <div class="field">

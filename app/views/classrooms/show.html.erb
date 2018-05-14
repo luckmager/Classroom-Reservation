@@ -9,7 +9,36 @@
   <%= @classroom.try(:device).try(:temperature) %>
 </p>
 
-<%=image_tag 'lokaal4308.png', class: 'classroom-img', id: 'example-id' %>
+<p>
+<h1>Reservations</h1>
+
+<table>
+  <thead>
+    <tr>
+	  <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>From</th>
+      <th>To</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classroom.reservations.each do |reservation| %>
+      <tr>
+	    <td><%= reservation.date %></td>
+        <td><%= reservation.title %></td>
+        <td><%= reservation.description %></td>
+        <td><%= reservation.from %></td>
+        <td><%= reservation.to %></td>
+        <td><%= link_to 'Show', reservation %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= image_tag(generate_qr("#{request.protocol}#{request.host_with_port}/classrooms/#{@classroom.id}.json"), class: "qr-code") %>
 <% if user_signed_in? %>
 	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |

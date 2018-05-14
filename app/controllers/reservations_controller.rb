@@ -25,7 +25,7 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-
+	@reservation.user_id = current_user.id
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -69,6 +69,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:user_id, :classroom_id, :date, :title, :description, :from, :to)
+      params.require(:reservation).permit(:classroom_id, :date, :title, :description, :from, :to)
     end
 end

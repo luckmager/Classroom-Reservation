@@ -18,15 +18,6 @@ ActiveRecord::Schema.define(version: 20180510091212) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.string "classroom"
-    t.string "startTime"
-    t.string "endTime"
-    t.string "reservation"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
     t.integer "building_id"
