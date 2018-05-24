@@ -40,6 +40,43 @@
     text-decoration: none;
 }
 
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.adminTable td, .adminTable th {
+  border: 1px solid #AAAAAA;
+}
+
+.adminTable tr:nth-child(even) {
+  background: #CCCCCC;
+}
+
+.adminTable thead {
+}
+
+.adminTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.adminTable tfoot td {
+  font-size: 13px;
+}
+
+.adminTable tfoot .links {
+  text-align: right;
+}
+
+.adminTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #A40808;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
 #guestText {
 	color: #fff;
 	font-size: 20px; 
