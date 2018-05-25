@@ -7,7 +7,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Classroom</th>
+	    <th>Building</th>
+      <th>Options</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,8 @@
     <% @classrooms.each do |classroom| %>
       <tr>
         <td><%= classroom.name %></td>
+		    <td><%= classroom.building.name %></td>
+        <td><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></td>
         <td><%= link_to 'Show', classroom %></td>
 		<% if user_signed_in? %>
 			<td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
