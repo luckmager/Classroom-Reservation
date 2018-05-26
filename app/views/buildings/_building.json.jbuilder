@@ -1,2 +1,8 @@
-json.extract! building, :id, :name, :created_at, :updated_at
-json.url building_url(building, format: :json)
+json.extract! building, :id, :name, :classrooms
+json.classrooms building.classrooms do |classroom|
+  json.(classroom, :id, :name)
+  json.temperature classroom.try(:device).try(:temperature)
+  json.options classroom.options do |option|
+   json.(option, :id, :name)
+  end
+end

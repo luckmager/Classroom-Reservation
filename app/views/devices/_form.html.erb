@@ -21,6 +21,11 @@
     <%= form.text_field :name, id: :device_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :temperature %>
+    <%= form.text_field :temperature, id: :device_temperature %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
