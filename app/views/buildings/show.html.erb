@@ -1,9 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<div class="breadcrumbs">
+  <%= link_to 'Buildings', buildings_path %>
+  <span> / </span>
+  <%= link_to @building.name, request.original_url %>
+</div>
+
 <p>
-  <strong>Name:</strong>
-  <%= @building.name %>
+  <strong>Location:</strong>
+  <%= @building.name %> <%= link_to 'Edit', edit_building_path(@building) %>
 </p>
 
-<%= link_to 'Edit', edit_building_path(@building) %> |
+<table class="adminTable">
+  <thead>
+  <tr>
+    <th>Classroom</th>
+    <th>Options</th>
+    <th>Temperature</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @building.classrooms.each do |classroom| %>
+    <tr>
+      <td><%= classroom.name %></td>
+      <td><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></td>
+      <td><%= classroom.try(:device).try(:temperature) %></td>
+      <td><%= link_to 'Show', classroom %></td>
+      <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
+        <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Back', buildings_path %>
