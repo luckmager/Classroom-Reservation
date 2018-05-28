@@ -9,5 +9,14 @@ Rails.application.routes.draw do
 
   root 'classrooms#index'
   resources :classrooms
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace 'api' do
+    namespace 'v1' do
+      resources :reservations
+      devise_for :users
+      resources :buildings
+      resources :classrooms
+      resources :users
+    end
+  end
 end
