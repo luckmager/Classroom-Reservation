@@ -5,5 +5,4 @@ json.classrooms @classrooms do |classroom|
   json.options classroom.options do |option|
     json.(option, :id, :name)
   end
-
 end
