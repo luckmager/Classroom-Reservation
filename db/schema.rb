@@ -18,15 +18,6 @@ ActiveRecord::Schema.define(version: 20180528145557) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.string "classroom"
-    t.string "startTime"
-    t.string "endTime"
-    t.string "reservation"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
     t.integer "building_id"
@@ -54,10 +45,8 @@ ActiveRecord::Schema.define(version: 20180528145557) do
 
   create_table "options", force: :cascade do |t|
     t.string "name"
-    t.integer "classroom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["classroom_id"], name: "index_options_on_classroom_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -80,8 +69,11 @@ ActiveRecord::Schema.define(version: 20180528145557) do
     t.string "username"
     t.string "password"
     t.string "role"
+    t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

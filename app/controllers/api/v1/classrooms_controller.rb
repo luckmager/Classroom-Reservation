@@ -1,4 +1,4 @@
-class Api::V1::ClassroomsController < ApplicationController
+class Api::V1::ClassroomsController < ApiController
   def index
     @classrooms = Classroom.all
 

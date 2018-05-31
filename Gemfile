@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 
 #Device gem for authentication
 gem 'devise'
+gem 'devise_token_auth'
 
 #Filtering
 gem "smart_listing"
@@ -57,12 +58,6 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end
-
-# Simple command
-gem 'simple_command'
-
-# JWT
-gem 'jwt'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
