@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class="breadcrumbs">
+  <%= link_to 'Buildings', buildings_path %>
+  <span> / </span>
+  <%= link_to @building.name, request.original_url %>
+</div>
+
+<p>
+  <strong>Location:</strong>
+  <%= @building.name %> <%= link_to 'Edit', edit_building_path(@building) %>
+</p>
+
+<table class="adminTable">
+  <thead>
+    <tr>
+      <td>Classroom</td>
+      <td>Options</td>
+      <td>Temperature</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+
+  <% @building.classrooms.each do |classroom| %>
+    <tr>
+      <td><%= classroom.name %></td>
+      <td><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></td>
+      <td><%= classroom.try(:device).try(:temperature) %></td>
+      <td>
+        <%= link_to admin_building_classroom_path(classroom) do %>
+          <%= image_tag "show.png", class: "actions" %>
+        <% end %>
+
+        <%= link_to edit_admin_classroom_path(classroom) do %>
+          <%= image_tag "edit.png", class: "actions" %>
+        <% end %>
+
+        <%= link_to classroom, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= image_tag "delete.png", class: "actions" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="3">
+      <%= link_to new_admin_classroom_path do %>
+        <%= image_tag "add.png", class: "actions" %><span class="noLink"> Add a new Classroom</span>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Back', admin_buildings_path %>

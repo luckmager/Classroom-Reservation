@@ -4,11 +4,24 @@ Rails.application.routes.draw do
   resources :devices
   resources :options
   resources :buildings
-  get "/admin/:page" => "admin#show"
+  #get "/admin/:page" => "admin#show"
   get 'buildings/index'
 
   root 'classrooms#index'
   resources :classrooms
+
+  namespace 'admin' do
+    resources :dashboard
+    resources :buildings do
+      resources :classrooms do
+        resources :devices
+        resources :options
+      end
+    end
+    resources :classrooms
+    resources :devices
+    resources :options
+  end
 
   namespace 'api' do
     namespace 'v1' do

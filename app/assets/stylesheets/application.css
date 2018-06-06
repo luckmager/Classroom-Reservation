@@ -18,6 +18,14 @@
 	margin: 0px;
 }
 
+span {
+    vertical-align: middle;
+}
+
+.noLink {
+    color: #000;
+}
+
 .innerBody {
 	margin: 30px;
 }
@@ -41,40 +49,32 @@
 }
 
 .adminTable {
-  width: 100%;
-  border-collapse: collapse;
+    background-color: #FFF;
+    border-collapse: collapse;
 }
-.adminTable td, .adminTable th {
-  border: 1px solid #AAAAAA;
+
+.adminTable thead td {
+    background: #CC0033;
+    color: #FFF !important;
+    font-weight: 600 !important;
+}
+
+.adminTable tr td {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #3B3B3B;
 }
 
 .adminTable tr:nth-child(even) {
-  background: #CCCCCC;
+    background: #D3D3D3;
 }
 
-.adminTable thead {
-}
-
-.adminTable thead th {
-  font-size: 19px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.adminTable tfoot td {
-  font-size: 13px;
-}
-
-.adminTable tfoot .links {
-  text-align: right;
-}
-
-.adminTable tfoot .links a{
-  display: inline-block;
-  background: #FFFFFF;
-  color: #A40808;
-  padding: 2px 8px;
-  border-radius: 5px;
+.actions {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
 }
 
 #guestText {

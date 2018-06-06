@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<div class="breadcrumbs">
+  <%= link_to 'Classrooms', classrooms_path %>
+</div>
+
+<div class="classroomContainer">
+  <% @classrooms.each do |classroom| %>
+    <%= link_to classroom do %>
+      <div class="classroomBox">
+        <div class="classroomHeader">
+          <span class="title"><%= classroom.name %></span>
+          <span class="description"><%= classroom.building.name %></span>
+        </div>
+        <div class="classroomFree">
+          <p>Free until 14:30</p>
+        </div>
+        <div class="classroomContent">
+          <p><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
