@@ -1,16 +1,15 @@
 class Admin::ClassroomsController < ApplicationController
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
+  before_action :set_building, only: [:show, :new, :create, :edit, :update, :destroy]
 
   # GET /classrooms
-  # GET /classrooms.json
   def index
     @classrooms = Classroom.all
   end
 
   # GET /classrooms/1
-  # GET /classrooms/1.json
   def show
-	@reservation = Reservation.new
+	  @reservation = Reservation.new
   end
 
   # GET /classrooms/new
@@ -23,42 +22,34 @@ class Admin::ClassroomsController < ApplicationController
   end
 
   # POST /classrooms
-  # POST /classrooms.json
   def create
     @classroom = Classroom.new(classroom_params)
 
     respond_to do |format|
-      if @classroom.save
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }
-        format.json { render :show, status: :created, location: @classroom }
+      if @building.classrooms << @classroom
+        format.html { redirect_to admin_building_path(@building), notice: 'Classroom was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @classroom.errors, status: :unprocessable_entity }
+        format.html { redirect_to new_admin_building_classroom_path(@building, @classroom), notice: 'Please fill in all the fields' }
       end
     end
   end
 
   # PATCH/PUT /classrooms/1
-  # PATCH/PUT /classrooms/1.json
   def update
     respond_to do |format|
       if @classroom.update(classroom_params)
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully updated.' }
-        format.json { render :show, status: :ok, location: @classroom }
+        format.html { redirect_to admin_building_path(@building), notice: 'Classroom was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @classroom.errors, status: :unprocessable_entity }
+        format.html { redirect_to edit_admin_building_classroom_path(@building, @classroom), notice: 'Please fill in all the fields' }
       end
     end
   end
 
   # DELETE /classrooms/1
-  # DELETE /classrooms/1.json
   def destroy
     @classroom.destroy
     respond_to do |format|
-      format.html { redirect_to classrooms_url, notice: 'Classroom was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to admin_building_path(@building), notice: 'Classroom #{@classroom.name} was successfully deleted.' }
     end
   end
 
@@ -68,8 +59,12 @@ class Admin::ClassroomsController < ApplicationController
       @classroom = Classroom.find(params[:id])
     end
 
+    def set_building
+      @building = Building.find(params[:building_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def classroom_params
-      params.require(:classroom).permit(:name, :building_id, :option_ids => [])
+      params.require(:classroom).permit(:name, :max_persons, :option_ids => [])
     end
 end

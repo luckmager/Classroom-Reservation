@@ -18,8 +18,6 @@ Rails.application.routes.draw do
         resources :options
       end
     end
-    resources :classrooms
-    resources :devices
     resources :options
   end
 

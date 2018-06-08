@@ -1,6 +1,6 @@
 module ClassroomsHelper
 	def buildings_for_select
-		Building.all.collect { |b| [b.name, b.id] }
+		Building.all.collect { |building| [building.name, building.id] }
 	end
 	
 	def generate_qr(text)

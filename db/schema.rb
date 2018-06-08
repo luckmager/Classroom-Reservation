@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180528145557) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
+    t.integer "max_persons"
     t.integer "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,5 +1,5 @@
 module DevicesHelper
 	def classrooms_for_select
-	  Classroom.all.collect { |c| [c.name, c.id] }
+	  Classroom.all.collect { |classroom| [classroom.name, classroom.id] }
 	end
 end

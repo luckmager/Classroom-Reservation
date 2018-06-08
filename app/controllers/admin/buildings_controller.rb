@@ -29,11 +29,9 @@ class Admin::BuildingsController < ApplicationController
 
     respond_to do |format|
       if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully created.' }
-        format.json { render :show, status: :created, location: @building }
+        format.html { redirect_to admin_buildings_path, notice: 'Building was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @building.errors, status: :unprocessable_entity }
+        format.html { render new_admin_building_path }
       end
     end
   end
@@ -43,11 +41,9 @@ class Admin::BuildingsController < ApplicationController
   def update
     respond_to do |format|
       if @building.update(building_params)
-        format.html { redirect_to @building, notice: 'Building was successfully updated.' }
-        format.json { render :show, status: :ok, location: @building }
+        format.html { redirect_to admin_buildings_path, notice: 'Building was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @building.errors, status: :unprocessable_entity }
+        format.html { render new_admin_building_path }
       end
     end
   end
@@ -57,8 +53,7 @@ class Admin::BuildingsController < ApplicationController
   def destroy
     @building.destroy
     respond_to do |format|
-      format.html { redirect_to buildings_url, notice: 'Building was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to admin_buildings_path, notice: 'Building was successfully destroyed.' }
     end
   end
 

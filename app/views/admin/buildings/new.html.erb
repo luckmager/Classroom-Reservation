@@ -1,5 +1,17 @@
-<h1>New Building</h1>
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', admin_buildings_path %>
+  <span> / </span>
+  <%= link_to 'New building', new_admin_building_path %>
+</div>
+
+<h1>Create a new building</h1>
 
 <%= render 'form', building: @building %>
 
-<%= link_to 'Back', buildings_path %>
+<%= link_to admin_buildings_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

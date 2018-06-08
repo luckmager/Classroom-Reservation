@@ -1,6 +1,25 @@
-<h1>Editing Classroom</h1>
+<% if notice %>
+  <div class="error">
+    <p><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', admin_buildings_path %>
+  <span> / </span>
+  <%= link_to @building.name, admin_building_path(@building) %>
+  <span> / </span>
+  <%= link_to 'Edit ' + @classroom.name, edit_admin_building_classroom_path(@building, @classroom) %>
+</div>
+
+<h1>Editing classroom <%= @classroom.name %> for <%= @building.name %></h1>
 
 <%= render 'form', classroom: @classroom %>
 
-<%= link_to 'Show', @classroom %> |
-<%= link_to 'Back', classrooms_path %>
+<%= link_to admin_building_path(@building) do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

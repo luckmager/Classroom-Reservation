@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
 <div class="breadcrumbs">
   <a href="/admin/dashboard">Administrator Dashboard</a>
@@ -10,7 +14,7 @@
   <thead>
     <tr>
       <td>Id</td>
-      <td>Name</td>
+      <td>Building name</td>
       <td>Action</td>
     </tr>
   </thead>
@@ -28,7 +32,7 @@
             <%= image_tag "edit.png", class: "actions" %>
           <% end %>
 
-          <%= link_to building, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= link_to admin_building_path(building), method: :delete, data: { confirm: 'Are you sure?' } do %>
             <%= image_tag "delete.png", class: "actions" %>
           <% end %>
         </td>
@@ -37,7 +41,7 @@
     <tr>
       <td colspan="3">
         <%= link_to new_admin_building_path do %>
-          <%= image_tag "add.png", class: "actions" %><span class="noLink"> Add a new Building</span>
+          <%= image_tag "add.png", class: "actions" %><span class="noLink"> Add a new building</span>
         <% end %>
       </td>
     </tr>

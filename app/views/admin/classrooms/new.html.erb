@@ -1,5 +1,25 @@
-<h1>New Classroom</h1>
+<% if notice %>
+<div class="error">
+  <p><%= notice %></p>
+</div>
+<% end %>
+
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', admin_buildings_path %>
+  <span> / </span>
+  <%= link_to @building.name, admin_building_path(@building) %>
+  <span> / </span>
+  <%= link_to 'New classroom ', new_admin_building_classroom_path(@building) %>
+</div>
+
+<h1>Create a new classroom for <%= @building.name %></h1>
 
 <%= render 'form', classroom: @classroom %>
 
-<%= link_to 'Back', classrooms_path %>
+<%= link_to admin_building_path(@building) do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>
