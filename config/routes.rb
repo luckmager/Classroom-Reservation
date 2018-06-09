@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   root 'classrooms#index'
   resources :classrooms
 
+  namespace 'qr' do
+    resources :buildings, only: [:index, :show] do
+      resources :classrooms, only: [:index, :show]
+    end
+  end
+
   namespace 'admin' do
     resources :dashboard
     resources :buildings do
