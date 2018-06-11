@@ -1,0 +1,1 @@
+<%= image_tag(generate_qr("#{request.protocol}#{request.host_with_port}/classrooms/#{@classroom.id}.json"), class: "qr-code") %>

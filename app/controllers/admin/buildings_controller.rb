@@ -6,6 +6,7 @@ class Admin::BuildingsController < ApplicationController
   # GET /buildings.json
   def index
     @buildings = Building.all
+    @id = current_user.role
   end
 
   # GET /buildings/1

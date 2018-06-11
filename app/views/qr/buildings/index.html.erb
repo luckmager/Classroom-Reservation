@@ -1,0 +1,33 @@
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', qr_buildings_path %>
+</div>
+
+<table class="adminTable">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Building name</td>
+    <td>Action</td>
+  </tr>
+  </thead>
+
+  <% @buildings.each do |building| %>
+    <tr>
+      <td><%= building.id %></td>
+      <td><%= building.name %></td>
+      <td>
+        <%= link_to qr_building_path(building) do %>
+          <%= image_tag "show.png", class: "actions" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

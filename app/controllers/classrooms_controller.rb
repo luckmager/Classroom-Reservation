@@ -10,7 +10,8 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1
   # GET /classrooms/1.json
   def show
-	@reservation = Reservation.new
+	  @reservation = Reservation.new
+    @reservations = Reservation.where(classroom_id: params[:id])
   end
 
   # GET /classrooms/new

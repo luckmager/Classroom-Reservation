@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   resources :reservations
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :devices
   resources :options
   resources :buildings
-  #get "/admin/:page" => "admin#show"
   get 'buildings/index'
 
   root 'classrooms#index'
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace 'qr' do
     resources :buildings, only: [:index, :show] do
-      resources :classrooms, only: [:index, :show]
+      resources :classrooms, only: [:show]
     end
   end
 

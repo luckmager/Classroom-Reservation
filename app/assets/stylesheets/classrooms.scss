@@ -12,6 +12,13 @@ a {
   flex-wrap: wrap;
 }
 
+.classroomReservationContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
 .classroomBox {
   display: flex;
   flex-direction: column;
@@ -59,4 +66,28 @@ a {
 .classroomContent {
   color: #000;
   padding: 0px 20px;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+}
+
+.dayColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.dayHeader {
+  padding: 10px;
+}
+
+.dayHour {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.reservation {
+  margin-left: 50px;
 }

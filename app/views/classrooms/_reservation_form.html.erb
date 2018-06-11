@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
+
+  <div class="field" style='display: none;'>
     <%= form.label :classroom_id %>
-    <%= form.text_field :classroom_id, id: :reservation_classroom_id %>
+    <%= form.text_field :classroom_id, id: :classroom_id, value: params[:id] %>
   </div>
-  
+
   <div class="field">
-	<%= form.label :date %>
+	  <%= form.label :date %>
     <%= form.text_field :date, data:{ provide:'datepicker' } %>
   </div>
   
