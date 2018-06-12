@@ -14,7 +14,7 @@
  *= require_self
  */
 
- body {
+body {
 	margin: 0px;
 }
 
@@ -36,8 +36,8 @@ a {
 }
 
 .navbar {
-  background-color: #CC0033;
-  padding: 20px 10px;
+    background-color: #CC0033;
+    padding: 20px 10px;
 }
 
 .breadcrumbs {
