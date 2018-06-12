@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @classroom.building.name %><br />
-  <strong>Classroom:</strong>
-  <%= @classroom.name %><br />
-  <strong>Temperature:</strong>
-  <%= @classroom.try(:device).try(:temperature).nil? ? 'None' : @classroom.(:device).(:temperature) %>
-</p>
+<div class="breadcrumbs">
+  <%= link_to 'Buildings', buildings_path %>
+  <span> / </span>
+  <%= link_to @classroom.building.name, building_path(@classroom.building) %>
+  <span> / </span>
+  <%= link_to 'Classrooms', classrooms_path %>
+  <span> / </span>
+  <%= link_to @classroom.name, classroom_path(@classroom) %>
+</div>
 
-<h1>Reservations</h1>
+<p>
+  <strong>Temperature:</strong>
+  <%= @classroom.try(:device).try(:temperature).nil? ? 'None' : @classroom.try(:device).try(:temperature) %>
+</p>
 
 <div class="classroomReservationContainer">
   <div class="calendar">
@@ -17,8 +21,8 @@
       <div class="dayHeader">
          &nbsp;<br />&nbsp;
       </div>
-      <% (1..15).each do |counter| %>
-        <div class="dayHour"><%= counter %> <%= get_hours(counter) %></div>
+      <% (1..15).each do |block| %>
+        <div class="dayHourText"><%= block %>: <%= get_hours(block) %></div>
       <% end %>
     </div>
     <% current_week.each do |date| %>
@@ -28,9 +32,7 @@
           <%= date %>
         </div>
         <% (1..15).each do |hour| %>
-          <div class="dayHour">
-            <%= get_reservation_date_hours(date, hour) %>
-          </div>
+          <%= get_reservation(date, hour).html_safe %>
         <% end %>
       </div>
     <% end %>

@@ -135,24 +135,40 @@ module ClassroomsHelper
 		end
 	end
 
-	def get_reservation_date_hours(date, hour)
+	def get_reservation(date, hour)
 		reservations = Reservation.where(classroom_id: params[:id], date: date)
 		if reservations.length == 0
-			return "None"
+			return no_reservation
+		elsif check_reservation(reservations, hour) != ''
+			return check_reservation(reservations, hour)
 		else
-			reservations.each do |reservation|
-				if (hour..hour).overlaps?(reservation.from..reservation.to)
-					if reservation.from == hour
-						return reservation.title + " start, " + reservation.user.email + ", "
-					elsif reservation.to == hour
-						return reservation.title + " end, " + reservation.user.email + ""
-					else
-						return reservation.title + " busy, " + reservation.user.email + ""
-					end
+			return no_reservation
+		end
+	end
+
+	def no_reservation
+		return '<div class="dayHour empty">None</div>'
+	end
+
+	def check_reservation(reservations, hour)
+		reservationString = ''
+		reservations.each do |reservation|
+			if (hour..hour).overlaps?(reservation.from..reservation.to)
+				if reservation.from == hour
+					reservationString = "<div class='dayHour start #{is_my_reservation(reservation.user_id)}'>#{reservation.title}<br />#{reservation.description}<br />#{reservation.user.email}</div>"
+				elsif reservation.to == hour
+					reservationString = "<div class='dayHour end #{is_my_reservation(reservation.user_id)}'> <br /></div>"
 				else
-					return "none"
+					reservationString = "<div class='dayHour busy #{is_my_reservation(reservation.user_id)}'> <br /></div>"
 				end
 			end
+		end
+		return reservationString
+	end
+
+	def is_my_reservation(user_id)
+		if current_user && current_user.id == user_id
+			return 'myReservation'
 		end
 	end
 end

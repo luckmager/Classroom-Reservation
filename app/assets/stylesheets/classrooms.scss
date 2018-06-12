@@ -14,8 +14,10 @@ a {
 
 .classroomReservationContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -71,7 +73,6 @@ a {
 .calendar {
   display: flex;
   flex-direction: row;
-  height: 400px;
 }
 
 .dayColumn {
@@ -81,13 +82,64 @@ a {
 
 .dayHeader {
   padding: 10px;
+  background: #CC0033;
+  color: #FFF;
+  text-align: center;
+  font-weight: 600;
+  height: 35px;
+  min-width: 100px;
+}
+
+.dayHourText {
+  border: 1px solid #D3D3D3;
+  height: 60px;
+  padding: 10px;
 }
 
 .dayHour {
-  border: 1px solid #000;
+  border: 1px solid #D3D3D3;
+  height: 60px;
   padding: 10px;
 }
 
 .reservation {
   margin-left: 50px;
+}
+
+.empty {
+  cursor: pointer;
+}
+
+.empty:hover {
+  background: #D3D3D3;
+}
+
+.start {
+  color: #FFF;
+  background: darkred;
+  border-top: 1px solid darkred;
+  border-left: 1px solid darkred;
+  border-bottom: 1px solid darkred;
+  cursor: default;
+}
+
+.busy {
+  background: darkred;
+  border-top: 1px solid darkred;
+  border-left: 1px solid darkred;
+  border-bottom: 1px solid darkred;
+  cursor: default;
+}
+
+.end {
+  background: darkred;
+  border-top: 1px solid darkred;
+  border-left: 1px solid darkred;
+  cursor: default;
+}
+
+.myReservation {
+  background: limegreen;
+  border-color: limegreen;
+  cursor: pointer;
 }
