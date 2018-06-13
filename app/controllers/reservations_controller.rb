@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where("user_id = ? AND date >= ?", current_user.id, Time.now.strftime("%Y-%m-%d"))
+                               .order(:date, :from_block)
   end
 
   # GET /reservations/1
@@ -69,6 +70,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:classroom_id, :date, :title, :description, :from, :to)
+      params.require(:reservation).permit(:classroom_id, :date, :title, :description, :from_block, :to_block)
     end
 end

@@ -12,10 +12,9 @@
           <span class="title"><%= classroom.name %></span>
           <span class="description"><%= classroom.building.name %></span>
         </div>
-        <div class="classroomFree">
-          <p>Free until 14:30</p>
-        </div>
+        <%= get_availability(classroom).html_safe %>
         <div class="classroomContent">
+          <p>Maximum persons: <%= classroom.max_persons %></p>
           <p><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></p>
         </div>
       </div>

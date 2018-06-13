@@ -61,7 +61,7 @@ module ClassroomsHelper
 		end
 	end
 
-	def get_start_hours
+	def get_start_hours(block)
 		case block
 		when 1
 			return "8:30"
@@ -98,7 +98,7 @@ module ClassroomsHelper
 		end
 	end
 
-	def get_end_hours
+	def get_end_hours(block)
 		case block
 		when 1
 			return "9:20"
@@ -153,10 +153,10 @@ module ClassroomsHelper
 	def check_reservation(reservations, hour)
 		reservationString = ''
 		reservations.each do |reservation|
-			if (hour..hour).overlaps?(reservation.from..reservation.to)
-				if reservation.from == hour
+			if (hour..hour).overlaps?(reservation.from_block..reservation.to_block)
+				if reservation.from_block == hour
 					reservationString = "<div class='dayHour start #{is_my_reservation(reservation.user_id)}'>#{reservation.title}<br />#{reservation.description}<br />#{reservation.user.email}</div>"
-				elsif reservation.to == hour
+				elsif reservation.to_block == hour
 					reservationString = "<div class='dayHour end #{is_my_reservation(reservation.user_id)}'> <br /></div>"
 				else
 					reservationString = "<div class='dayHour busy #{is_my_reservation(reservation.user_id)}'> <br /></div>"
@@ -171,4 +171,56 @@ module ClassroomsHelper
 			return 'myReservation'
 		end
 	end
+
+	def get_availability(classroom)
+		block = get_current_block
+		reservation = Reservation.where("classroom_id = ? AND from_block <= ? AND to_block >= ? AND date = ?", classroom.id, block, block, Time.now.strftime("%Y-%m-%d"))
+		if reservation.length == 0
+			return '<div class="classroomFree">Currently free</div>'
+		else
+			return '<div class="classroomTaken">Currently taken</div>'
+		end
+	end
+
+	def get_current_block
+		hour = Time.now.hour
+		minutes = Time.now.min
+		time = hour*100 + minutes
+
+		case time
+		when 830..920
+			return 1
+		when 920..1010
+			return 2
+		when 1010..1120
+			return 3
+		when 1120..1210
+			return 4
+		when 1210..1300
+			return 5
+		when 1300..1350
+			return 6
+		when 1350..1440
+			return 7
+		when 1440..1550
+			return 8
+		when 1550..1640
+			return 9
+		when 1700..1750
+			return 10
+		when 1750..1840
+			return 11
+		when 1840..1930
+			return 12
+		when 1930..2020
+			return 13
+		when 2020..2110
+			return 14
+		when 2110..2200
+			return 15
+		else
+			return 1
+		end
+	end
+
 end

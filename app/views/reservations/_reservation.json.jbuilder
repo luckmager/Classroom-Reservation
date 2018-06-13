@@ -1,1 +1,1 @@
-json.extract! reservation, :id, :user_id, :classroom_id, :date, :title, :description, :from, :to
+json.extract! reservation, :id, :classroom_id, :date, :title, :description, :from_block, :to_block

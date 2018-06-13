@@ -12,11 +12,6 @@
   <% end %>
   
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date, id: :reservation_date %>
-  </div>
-  
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :reservation_title %>
   </div>
@@ -24,16 +19,6 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description, id: :reservation_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :from %>
-    <%= form.number_field :from, id: :reservation_from %>
-  </div>
-
-  <div class="field">
-    <%= form.label :to %>
-    <%= form.number_field :to, id: :reservation_to %>
   </div>
 
   <div class="actions">
