@@ -1,12 +1,10 @@
 class Admin::BuildingsController < ApplicationController
-  #before_action :authenticate_user!
   before_action :set_building, only: [:show, :edit, :update, :destroy]
 
   # GET /buildings
   # GET /buildings.json
   def index
     @buildings = Building.all
-    @id = current_user.role
   end
 
   # GET /buildings/1

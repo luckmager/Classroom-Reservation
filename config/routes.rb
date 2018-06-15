@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       end
     end
     resources :options
+    resources :devices
+    resources :users
   end
 
   namespace 'api' do
