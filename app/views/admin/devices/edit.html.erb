@@ -1,6 +1,17 @@
-<h1>Editing Device</h1>
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Devices', admin_devices_path %>
+  <span> / </span>
+  <%= link_to "Edit #{@device.name}", edit_admin_device_path(@device) %>
+</div>
+
+<h1>Editing device <%= @device.name %></h1>
 
 <%= render 'form', device: @device %>
 
-<%= link_to 'Show', @device %> |
-<%= link_to 'Back', devices_path %>
+<%= link_to admin_devices_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

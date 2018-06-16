@@ -1,4 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Devices', admin_devices_path %>
+  <span> / </span>
+  <%= link_to @device.name, request.original_url %>
+</div>
 
 <p>
   <strong>Name:</strong>

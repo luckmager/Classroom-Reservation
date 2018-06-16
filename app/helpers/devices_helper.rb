@@ -1,5 +1,5 @@
 module DevicesHelper
 	def classrooms_for_select
-	  Classroom.all.collect { |classroom| [classroom.name, classroom.id] }
+	  Classroom.where(building_id: params[:id]).order(:name).collect { |classroom| [classroom.name, classroom.id] }
 	end
 end

@@ -22,8 +22,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :temperature %>
-    <%= form.text_field :temperature, id: :device_temperature %>
+    <%= form.label :authentication_token %>
+    <%= form.text_field :auth, id: :device_auth %>
+    <div id="generateAuth">Generate</div>
   </div>
 
   <div class="actions">

@@ -2,17 +2,24 @@
   <%= link_to 'Administrator Dashboard', admin_dashboard_index_path %>
 </div>
 <div class="container">
-  <%= link_to admin_buildings_path, :action => 'go' do %>
+  <%= link_to admin_buildings_path do %>
     <div class="admin_button">
       <%= image_tag("building_icon.png") %><br />
       <%= link_to 'Manage buildings', admin_buildings_path %>
     </div>
   <% end %>
 
-  <%= link_to admin_options_path, :action => 'go' do %>
+  <%= link_to admin_options_path do %>
     <div class="admin_button">
       <%= image_tag("classroom_options_icon.png") %><br />
       <%= link_to 'Manage classroom options', admin_options_path %>
+    </div>
+  <% end %>
+
+  <%= link_to admin_devices_path do %>
+    <div class="admin_button">
+      <%= image_tag("devices_icon.png") %><br />
+      <%= link_to 'Manage devices', admin_devices_path %>
     </div>
   <% end %>
 </div>

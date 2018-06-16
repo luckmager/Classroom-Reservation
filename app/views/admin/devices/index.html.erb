@@ -1,35 +1,57 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
 <div class="breadcrumbs">
-  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <%= link_to 'Administrator Dashboard', admin_dashboard_index_path %>
   <span> / </span>
-  <%= link_to 'Devices', devices_path %>
+  <%= link_to 'Devices', admin_devices_path %>
 </div>
 
-<table>
+<table class="adminTable">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Auth</th>
-      <th>Temperature</th>
-      <th colspan="3"></th>
+      <td>Building</td>
+      <td>Classroom</td>
+      <td>Device name</td>
+      <td>Temperature</td>
+      <td>Humidity</td>
+      <td>Authentication token</td>
+      <td>Action</td>
     </tr>
   </thead>
-
-  <tbody>
-    <% @devices.each do |device| %>
+  <% @devices.each do |device| %>
       <tr>
+        <td><%= device.classroom.building.name %></td>
+        <td><%= device.classroom.name %></td>
         <td><%= device.name %></td>
-        <td><%= device.auth %></td>
         <td><%= device.temperature %></td>
-        <td><%= link_to 'Show', device %></td>
-        <td><%= link_to 'Edit', edit_device_path(device) %></td>
-        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= device.humidity %></td>
+        <td><%= device.auth %></td>
+        <td>
+          <%= link_to edit_admin_device_path(device) do %>
+            <%= image_tag "edit.png", class: "actions" %>
+          <% end %>
+
+          <%= link_to admin_device_path(device), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= image_tag "delete.png", class: "actions" %>
+          <% end %>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
+  <% end %>
+    <tr>
+      <td colspan="7">
+        <%= link_to new_admin_device_path do %>
+          <%= image_tag "add.png", class: "actions" %><span class="noLink"> Add a new device</span>
+        <% end %>
+      </td>
+    </tr>
 </table>
 
-<br>
-
-<%= link_to 'New Device', new_device_path %>
+<%= link_to 'dashboard' do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>
