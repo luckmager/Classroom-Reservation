@@ -155,7 +155,7 @@ module ClassroomsHelper
 		reservations.each do |reservation|
 			if (hour..hour).overlaps?(reservation.from_block..reservation.to_block)
 				if reservation.from_block == hour
-					reservationString = "<div class='dayHour start #{is_my_reservation(reservation.user_id)}'>#{reservation.title}<br />#{reservation.description}<br />#{reservation.user.email}</div>"
+					reservationString = "<div class='dayHour start #{is_my_reservation(reservation.user_id)}'>#{reservation.title}<br />#{reservation.description}<br />#{reservation.user.try(:email)}</div>"
 				elsif reservation.to_block == hour
 					reservationString = "<div class='dayHour end #{is_my_reservation(reservation.user_id)}'> <br /></div>"
 				else

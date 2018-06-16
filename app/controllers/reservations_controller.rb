@@ -31,6 +31,7 @@ class ReservationsController < ApplicationController
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
+        ReservationMailer.with(reservation: @reservation).reservation_booked_mail.deliver_now
       else
         format.html { render :new }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }

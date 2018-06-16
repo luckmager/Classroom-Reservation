@@ -6,5 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reservations
   include DeviseTokenAuth::Concerns::User
-  validates_inclusion_of :role, :in => 0..3
+  validates :role, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 3 }
 end

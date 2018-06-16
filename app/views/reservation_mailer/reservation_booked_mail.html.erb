@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Thank you for booking a reservation, <%= @user.email %></h1>
+<p>
+  Your reservation is on: <%= @reservation.date %><br />
+  From: <%= @reservation.from_block %> to: <%= @reservation.to_block %>
+</p>
+<p>Kind regards,</p>
+<p>Team Limey</p>
+</body>
+</html>
