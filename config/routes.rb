@@ -31,8 +31,9 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resources :reservations
-      resources :buildings
-      resources :classrooms
+      resources :buildings do
+        resources :classrooms
+      end
       mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks], controllers: {
           token_validations: 'overrides/token_validations',
           sessions: 'overrides/sessions'
