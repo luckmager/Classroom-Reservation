@@ -4,8 +4,10 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Thank you for booking a reservation, <%= @reservation.user.email %></h1>
+<h1>Your reservation <%= @reservation.title %> has been updated, <%= @reservation.user.email %></h1>
 <p>
+  Title: <%= @reservation.title %>
+  Description: <%= @reservation.description %>
   Your reservation is on: <%= @reservation.date %><br />
   From: <%= @reservation.from_block %> to: <%= @reservation.to_block %>
   Location: <%= @reservation.classroom.building.name %>

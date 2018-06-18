@@ -20,7 +20,7 @@ validates_numericality_of :to_block, less_than_or_equal_to: 15, greater_than: 0
 	def is_booked
 		@reservations = Reservation.where(date: date)
 		@reservations.each do |reservation|
-			if (from_block..to_block).overlaps?(reservation.from_block..reservation.to_block)
+			if (from_block..to_block).overlaps?(reservation.from_block..reservation.to_block) && reservation.id != id
 				errors.add(:from, "Already booked") 
 			end
 		end

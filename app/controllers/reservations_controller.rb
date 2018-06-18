@@ -27,6 +27,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 	  @reservation.user_id = current_user.id
+
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to classroom_path(@reservation.classroom), notice: 'Reservation was successfully created.' }
@@ -46,6 +47,7 @@ class ReservationsController < ApplicationController
       if @reservation.update(reservation_params)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
+        ReservationMailer.with(reservation: @reservation).reservation_updated_mail.deliver_now
       else
         format.html { render :edit }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
