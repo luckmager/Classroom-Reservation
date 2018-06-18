@@ -63,12 +63,7 @@
   </div>
 
   <div class="reservation">
-    <% if user_signed_in? %>
-      <%= render 'reservation_form', reservation: @reservation %>
-    <% else %>
-      <h1>Login to create a reservation</h1>
-      <%= link_to('Login', new_user_session_path) %>
-    <% end %>
+    <%= render 'reservation_form', reservation: @reservation %>
   </div>
 </div>
 

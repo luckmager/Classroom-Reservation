@@ -15,6 +15,13 @@
   <%= @classroom.try(:device).try(:temperature).nil? ? 'None' : @classroom.try(:device).try(:temperature) %>
 </p>
 
+<% if !user_signed_in? %>
+<div class="loginDiv">
+  <h1>Login to create a reservation</h1>
+  <%= link_to('Login', new_user_session_path) %>
+</div>
+<% end %>
+
 <div class="classroomReservationContainer">
   <div class="calendar">
     <div class="dayColumn">
@@ -41,9 +48,6 @@
   <div class="reservation">
     <% if user_signed_in? %>
       <%= render 'reservation_form', reservation: @reservation %>
-    <% else %>
-      <h1>Login to create a reservation</h1>
-      <%= link_to('Login', new_user_session_path) %>
     <% end %>
   </div>
 </div>

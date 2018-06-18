@@ -1,6 +1,6 @@
 <div class="reservationFormBg">
   <div class="reservationForm" id="reservationForm">
-    <div class="hideReservationForm">&#10006</div>
+    <div class="hideReservationForm" onclick="hideReservationForm()">&#10006</div>
     <h1>Create a reservation</h1>
     <%= form_with(model: reservation, local: true) do |form| %>
       <% if reservation.errors.any? %>

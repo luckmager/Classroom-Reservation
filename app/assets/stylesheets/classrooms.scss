@@ -127,31 +127,39 @@ a {
 }
 
 .start {
-  color: #FFF;
-  background: darkred;
-  border-top: 1px solid darkred;
-  border-left: 1px solid darkred;
-  border-bottom: 1px solid darkred;
+  color: #a94442;
+  background: #f2dede;
+  border-top: 1px solid #ebcccc;
+  border-left: 1px solid #ebcccc;
+  border-bottom: 1px solid #ebcccc;
   cursor: default;
 }
 
 .busy {
-  background: darkred;
-  border-top: 1px solid darkred;
-  border-left: 1px solid darkred;
-  border-bottom: 1px solid darkred;
+  background: #f2dede;
+  border-top: 1px solid #ebcccc;
+  border-left: 1px solid #ebcccc;
+  border-bottom: 1px solid #ebcccc;
   cursor: default;
 }
 
 .end {
-  background: darkred;
-  border-top: 1px solid darkred;
-  border-left: 1px solid darkred;
+  background: #f2dede;
+  border-top: 1px solid #ebcccc;
+  border-left: 1px solid #ebcccc;
   cursor: default;
 }
 
 .myReservation {
-  background: limegreen;
-  border-color: limegreen;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
   cursor: pointer;
+}
+
+.loginDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
 }

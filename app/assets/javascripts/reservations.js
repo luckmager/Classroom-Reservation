@@ -4,7 +4,6 @@ function showReservationForm(reservation) {
     document.getElementById("reservation_date").value = date;
     document.getElementById("reservation_from_block").value = block;
     document.getElementById("reservation_to_block").value = block;
-    alert("The " + date + " is a " + block + ".");
     $("#reservationForm").show();
 }
 
