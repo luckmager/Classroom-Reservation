@@ -22,4 +22,11 @@
       <%= link_to 'Manage devices', admin_devices_path %>
     </div>
   <% end %>
+
+  <%= link_to admin_users_path do %>
+    <div class="admin_button">
+      <%= image_tag("users_icon.png") %><br />
+      <%= link_to 'Manage users', admin_users_path %>
+    </div>
+  <% end %>
 </div>

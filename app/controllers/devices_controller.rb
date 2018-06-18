@@ -42,11 +42,9 @@ class DevicesController < ApplicationController
   def update
     respond_to do |format|
       if @device.update(device_params)
-        format.html { redirect_to @device, notice: 'Device was successfully updated.' }
-        format.json { render :show, status: :ok, location: @device }
+        format.html { redirect_to admin_devices_path, notice: 'Device was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @device.errors, status: :unprocessable_entity }
+        format.html { render :admin, :edit }
       end
     end
   end

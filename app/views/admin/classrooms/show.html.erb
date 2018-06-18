@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', admin_buildings_path %>
+  <span> / </span>
+  <%= link_to @building.name, admin_building_path(@building) %>
+  <span> / </span>
+  <%= link_to 'Classrooms', admin_building_classrooms_path %>
+  <span> / </span>
+  <%= link_to @classroom.name, admin_building_classroom_path(@classroom) %>
+</div>
 
 <p>
   <strong>Building:</strong>
@@ -6,138 +22,58 @@
   <strong>Name:</strong>
   <%= @classroom.name %><br />
   <strong>Temperature:</strong>
-  <%= @classroom.try(:device).try(:temperature) %>
+  <%= @classroom.try(:device).try(:temperature).nil? ? 'None' : @classroom.try(:device).try(:temperature) %><br />
+  <strong>Humidity:</strong>
+  <%= @classroom.try(:device).try(:humidity).nil? ? 'None' : @classroom.try(:device).try(:humidity) %><br />
+  <% if @classroom.device %>
+    <strong>Device:</strong>
+    <%= @classroom.device.name %>,
+    <strong>Device token:</strong>
+    <%= @classroom.device.auth %>
+    <%= link_to edit_admin_building_classroom_device_path(@building, @classroom, @classroom.device) do %>
+      <%= image_tag "edit.png", class: "action" %>
+    <% end %>
+  <% else %>
+    <strong>Create new device:</strong>
+    <%= link_to 'New device', new_admin_building_classroom_device_path(@classroom.building, @classroom) %>
+  <% end %>
 </p>
 
-<p>
-<h1>Reservations</h1>
+<div class="classroomReservationContainer">
+  <div class="calendar">
+    <div class="dayColumn">
+      <div class="dayHeader">
+        &nbsp;<br />&nbsp;
+      </div>
+      <% (1..15).each do |block| %>
+        <div class="dayHourText"><%= block %>: <%= get_hours(block) %></div>
+      <% end %>
+    </div>
+    <% current_week.each do |date| %>
+      <div class="dayColumn">
+        <div class="dayHeader">
+          <%= date.strftime("%A")%><br />
+          <%= date %>
+        </div>
+        <% (1..15).each do |hour| %>
+          <%= get_reservation(date, hour).html_safe %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Block</th>
-	    <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="reservation">
+    <% if user_signed_in? %>
+      <%= render 'reservation_form', reservation: @reservation %>
+    <% else %>
+      <h1>Login to create a reservation</h1>
+      <%= link_to('Login', new_user_session_path) %>
+    <% end %>
+  </div>
+</div>
 
-  <tbody>
-      <tr>
-        <td> - </td>
-        <% current_week.each do |date| %>
-          <td><%= date %></td>
-        <% end %>
-
-        <% next_week.each do |date| %>
-          <td><%= date %></td>
-        <% end %>
-
-      </tr>
-      <tr>
-        <td><b>1</b> 8:30 - 9:20</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>2</b> 9:20 - 10:10</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>3</b> 10:30 - 11:20</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>4</b> 11:20 - 12:10</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>5</b> 12:10 - 13:00</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>6</b> 13:00 - 13:50</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>7</b> 13:50 - 14:40</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>8</b> 15:00 - 15:50</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>9</b> 15:50 - 16:40</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>10</b> 17:00 - 17:50</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>11</b> 17:50 - 18:40</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>12</b> 18:40 - 19:30</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>13</b> 19:30 - 20:20</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>14</b> 20:20 - 21:10</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td><b>15</b> 21:10 - 22:00</td>
-        <% (1..10).each do |counter| %>
-          <td><%= counter %></td>
-        <% end %>
-      </tr>
-  </tbody>
-</table>
-<%= image_tag(generate_qr("#{request.protocol}#{request.host_with_port}/classrooms/#{@classroom.id}.json"), class: "qr-code") %>
-<% if user_signed_in? %>
-	<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= link_to classrooms_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
 <% end %>
-<%= link_to 'Back', classrooms_path %>
-
-<%= render 'reservation_form', reservation: @reservation %>

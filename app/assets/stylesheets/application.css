@@ -1,18 +1,7 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
- */
+*/
 
 body {
 	margin: 0px;
@@ -25,6 +14,68 @@ span {
 a {
     color: #CC0033;
     text-decoration: none;
+}
+
+input {
+    height: 25px;
+}
+
+select {
+    height: 30px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background: #D3D3D3;
+    width: 50%;
+    padding: 10px;
+    min-width: 200px;
+    max-width: 800px;
+}
+
+.formContainer form {
+    width: 80%;
+}
+
+.formContainer input[type=email], input[type=password], input[type=number], input[type=text], input[type=select] {
+    width: 100%;
+}
+
+.formContainer input[type=checkbox] {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -2px;
+    cursor: pointer;
+}
+
+.formContainer input[type=submit] {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+}
+
+.horizontalField {
+    padding-bottom: 10px;
+}
+
+.horizontalField label{
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: bottom;
+    position: relative;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.checkboxLabel {
+    display: inline-block;
 }
 
 .noLink {
@@ -76,9 +127,15 @@ a {
     background: #D3D3D3;
 }
 
-.actions {
+.action {
     width: 25px;
     height: 25px;
+    vertical-align: middle;
+}
+
+.actions {
+    width: 100%;
+    height: 30px;
     vertical-align: middle;
 }
 
@@ -156,10 +213,19 @@ li a {
 }
 
 .success {
-    background: limegreen;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
     padding: 10px 0px 10px 20px;
     margin-bottom: 20px;
     border-radius: 5px;
     width: 99%;
-    color: #FFF;
+    color: #468847;
+}
+
+.shared {
+    text-align: center;
+}
+
+.shared a:hover {
+    text-decoration: underline;
 }

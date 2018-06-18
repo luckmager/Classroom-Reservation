@@ -40,7 +40,6 @@
 
   <div class="reservation">
     <% if user_signed_in? %>
-      <h1>Create a reservation</h1>
       <%= render 'reservation_form', reservation: @reservation %>
     <% else %>
       <h1>Login to create a reservation</h1>

@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
 <div class="breadcrumbs">
   <a href="/admin/dashboard">Administrator Dashboard</a>
@@ -6,26 +10,43 @@
   <%= link_to 'Classroom Options', options_path %>
 </div>
 
-<table>
+<table class="adminTable">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <td>Option name</td>
+      <td>Action</td>
     </tr>
   </thead>
 
-  <tbody>
     <% @options.each do |option| %>
       <tr>
         <td><%= option.name %></td>
-        <td><%= link_to 'Show', option %></td>
-        <td><%= link_to 'Edit', edit_option_path(option) %></td>
-        <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to admin_option_path(option) do %>
+            <%= image_tag "show.png", class: "action" %>
+          <% end %>
+
+          <%= link_to edit_admin_option_path(option) do %>
+            <%= image_tag "edit.png", class: "action" %>
+          <% end %>
+
+          <%= link_to admin_option_path(option), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= image_tag "delete.png", class: "action" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
+    <tr>
+      <td colspan="3">
+        <%= link_to new_admin_option_path do %>
+          <%= image_tag "add.png", class: "action" %><span class="noLink"> Add a new classroom option</span>
+        <% end %>
+      </td>
+    </tr>
 </table>
 
-<br>
-
-<%= link_to 'New Option', new_option_path %>
+<%= link_to 'dashboard' do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

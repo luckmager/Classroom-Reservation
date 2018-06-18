@@ -26,15 +26,15 @@
         <td><%= reservation.to_block %></td>
         <td>
           <%= link_to classroom_path(reservation.classroom) do %>
-            <%= image_tag "show.png", class: "actions" %>
+            <%= image_tag "show.png", class: "action" %>
           <% end %>
 
           <%= link_to edit_reservation_path(reservation) do %>
-            <%= image_tag "edit.png", class: "actions" %>
+            <%= image_tag "edit.png", class: "action" %>
           <% end %>
 
           <%= link_to reservation, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <%= image_tag "delete.png", class: "actions" %>
+            <%= image_tag "delete.png", class: "action" %>
           <% end %>
         </td>
       </tr>

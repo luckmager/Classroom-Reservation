@@ -6,12 +6,14 @@
   <%= link_to 'New building', new_admin_building_path %>
 </div>
 
-<h1>Create a new building</h1>
+<div class="formContainer">
+  <h1>Create a new building</h1>
 
-<%= render 'form', building: @building %>
+  <%= render 'form', building: @building %>
 
-<%= link_to admin_buildings_path do %>
-  <div class="backButton">
-    <p>Back</p>
-  </div>
-<% end %>
+  <%= link_to admin_buildings_path do %>
+    <div class="backButton">
+      <p>Back</p>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :reservations
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
   resources :devices
   resources :options
   resources :buildings
