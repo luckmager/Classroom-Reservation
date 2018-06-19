@@ -15,7 +15,6 @@
     <tr>
       <td>Id</td>
       <td>Email</td>
-      <td>First name</td>
       <td>Role</td>
       <td>Action</td>
     </tr>
@@ -25,8 +24,7 @@
       <tr>
         <td><%= user.id %></td>
         <td><%= user.email %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.role %></td>
+        <td><%= get_role_name(user.role) %></td>
         <td>
           <%= link_to admin_user_path(user) do %>
             <%= image_tag "show.png", class: "action" %>

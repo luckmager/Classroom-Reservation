@@ -1,5 +1,20 @@
-<h1>New user</h1>
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Users', admin_users_path %>
+  <span> / </span>
+  <%= link_to 'New user', new_admin_user_path %>
+</div>
 
-<%= render 'form', user: @user %>
+<div class="formContainer">
+  <h1>Create a new user (password: Test1324)</h1>
 
-<%= link_to 'Back', admin_users_path %>
+  <%= render 'form', user: @user %>
+
+</div>
+
+<%= link_to admin_users_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

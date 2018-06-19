@@ -1,5 +1,11 @@
 module UsersHelper
-  def roles_for_select
-    Building.all.collect { |building| [building.name, building.id] }
+  def get_role_name(role)
+    if role == 0
+      return "Student"
+    elsif role == 1
+      return "Teacher"
+    elsif role == 2
+      return "Admin"
+    end
   end
 end

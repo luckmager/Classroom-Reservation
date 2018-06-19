@@ -4,5 +4,6 @@ class Classroom < ApplicationRecord
 	has_many :reservations
 	has_and_belongs_to_many :options
 
+	# Must have fields
 	validates :name, :max_persons, presence: true
 end

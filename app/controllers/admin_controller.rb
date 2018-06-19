@@ -7,8 +7,8 @@ class AdminController < ApplicationController
 
 	# Check if current user is an admin
 	def check_admin
-		if current_user && current_user.role == "admin"
-		elsif current_user && current_user.role != "admin"
+		if current_user && current_user.role == 2
+		elsif current_user && current_user.role != 2
 			redirect_to classrooms_url, notice: 'You are not authorized'
 		else
 			redirect_to classrooms_url, notice: 'You are not logged in'

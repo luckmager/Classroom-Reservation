@@ -9,6 +9,7 @@ validate :date_is_in_range
 validates_numericality_of :from_block, less_than_or_equal_to: 15, greater_than: 0
 validates_numericality_of :to_block, less_than_or_equal_to: 15, greater_than: 0
 
+	# Validates that the from block is before the to block
 	def to_is_after_from
 		return if to_block.blank? || from_block.blank?
 
@@ -16,7 +17,8 @@ validates_numericality_of :to_block, less_than_or_equal_to: 15, greater_than: 0
 			errors.add(:from_block, "From block can't be after To block")
 		end 
 	end
-	
+
+	# Validates if the blocks aren't already taken
 	def is_booked
 		@reservations = Reservation.where(date: date)
 		@reservations.each do |reservation|
@@ -25,7 +27,8 @@ validates_numericality_of :to_block, less_than_or_equal_to: 15, greater_than: 0
 			end
 		end
 	end
-	
+
+	# Validates if the user does not book in the past or past 2 weeks
 	def date_is_in_range
 		maxDate = Time.now + (2*7*24*60*60)
 		if date.to_date > maxDate

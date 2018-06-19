@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
   # POST /admin/users
   def create
     @user = User.new(user_params)
-
+    @user.password = "Test1324"
     respond_to do |format|
       if @user.save
         format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
@@ -34,6 +34,7 @@ class Admin::UsersController < ApplicationController
 
   # PUT /admin/user/index
   def update
+    @user.role = 1
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
@@ -59,6 +60,6 @@ class Admin::UsersController < ApplicationController
 
   # Trusted params
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :role, :password)
+    params.require(:user).permit(:email, :role)
   end
 end
