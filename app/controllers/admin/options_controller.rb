@@ -7,10 +7,6 @@ class Admin::OptionsController < ApplicationController
     @options = Option.all
   end
 
-  # GET /admin/options/index
-  def show
-  end
-
   # GET /admin/options/new
   def new
     @option = Option.new
@@ -26,7 +22,7 @@ class Admin::OptionsController < ApplicationController
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to @option, notice: 'Option was successfully created.' }
+        format.html { redirect_to admin_options_path, notice: 'Option was successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,7 +33,7 @@ class Admin::OptionsController < ApplicationController
   def update
     respond_to do |format|
       if @option.update(option_params)
-        format.html { redirect_to @option, notice: 'Option was successfully updated.' }
+        format.html { redirect_to admin_options_path, notice: 'Option was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -48,7 +44,7 @@ class Admin::OptionsController < ApplicationController
   def destroy
     @option.destroy
     respond_to do |format|
-      format.html { redirect_to options_url, notice: 'Option was successfully deleted.' }
+      format.html { redirect_to admin_options_path, notice: 'Option was successfully deleted.' }
     end
   end
 

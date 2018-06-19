@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
 <div class="breadcrumbs">
   <%= link_to 'My Reservations', reservations_path %>
@@ -25,7 +29,7 @@
         <td><%= reservation.from_block %></td>
         <td><%= reservation.to_block %></td>
         <td>
-          <%= link_to classroom_path(reservation.classroom) do %>
+          <%= link_to building_classroom_path(reservation.classroom.building, reservation.classroom) do %>
             <%= image_tag "show.png", class: "action" %>
           <% end %>
 
@@ -42,7 +46,7 @@
   </tbody>
 </table>
 
-<%= link_to classrooms_path do %>
+<%= link_to buildings_path do %>
   <div class="backButton">
     <p>Back</p>
   </div>

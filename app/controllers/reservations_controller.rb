@@ -11,10 +11,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # GET /reservations/index
-  def show
-  end
-
   # GET /reservations/new
   def new
     @reservation = Reservation.new
@@ -32,35 +28,38 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to classroom_path(@reservation.classroom), notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
         ReservationMailer.with(reservation: @reservation).reservation_booked_mail.deliver_now
       else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+        format.html { redirect_to classroom_path(@reservation.classroom), notice: @reservation.errors }
       end
     end
   end
 
   # PUT /reservations/index
   def update
-    respond_to do |format|
-      if @reservation.update(reservation_params)
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reservation }
-        ReservationMailer.with(reservation: @reservation).reservation_updated_mail.deliver_now
-      else
-        format.html { render :edit }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+    if @reservation.user_id == current_user.id || current_user.role == 2
+      respond_to do |format|
+        if @reservation.update(reservation_params)
+          format.html { redirect_to reservations_path, notice: 'Reservation was successfully updated.' }
+          ReservationMailer.with(reservation: @reservation).reservation_updated_mail.deliver_now
+        else
+          format.html { render :edit }
+        end
       end
+    else
+      format.html { redirect_to reservations_path, notice: 'This is not your reservation.' }
     end
   end
 
   # DELETE /reservations/index
   def destroy
-    @reservation.destroy
-    respond_to do |format|
-      format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
-      format.json { head :no_content }
+    if @reservation.user_id == current_user.id || current_user.role == 2
+      @reservation.destroy
+      respond_to do |format|
+        format.html { redirect_to reservations_url, notice: 'Reservation was successfully deleted.' }
+      end
+    else
+      format.html { redirect_to reservations_path, notice: 'This is not your reservation.' }
     end
   end
 

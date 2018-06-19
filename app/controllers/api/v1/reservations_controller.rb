@@ -31,7 +31,7 @@ class Api::V1::ReservationsController < ApiController
 
   # PUT /reservations/index
   def update
-    if @reservation.user_id == current_user.id
+    if @reservation.user_id == current_user.id || current_user.role == 2
       if @reservation.update(reservation_params)
         render json: {
             success: true
@@ -53,7 +53,7 @@ class Api::V1::ReservationsController < ApiController
 
   # DELETE /reservations/index
   def destroy
-    if @reservation.user_id == current_user.id
+    if @reservation.user_id == current_user.id || current_user.role == 2
       @reservation.destroy
       render json: {
           success: true

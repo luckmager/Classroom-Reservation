@@ -1,29 +1,23 @@
-<p id="notice"><%= notice %></p>
-
 <div class="breadcrumbs">
-  <%= link_to 'Buildings', buildings_path %>
+  <%= link_to 'Buildings', admin_buildings_path %>
 </div>
 
 <table class="adminTable">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <td>Location name</td>
+    <td>View</td>
+  </tr>
   </thead>
 
-  <tbody>
-    <% @buildings.each do |building| %>
-      <tr>
-        <td><%= building.name %></td>
-        <td><%= link_to 'Show', building %></td>
-        <td><%= link_to 'Edit', edit_building_path(building) %></td>
-        <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% @buildings.each do |building| %>
+    <tr>
+      <td><%= building.name %></td>
+      <td>
+        <%= link_to building_path(building) do %>
+          <%= image_tag "show.png", class: "action" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
 </table>
-
-<br>
-
-<%= link_to 'New Building', new_building_path %>

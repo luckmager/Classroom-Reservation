@@ -1,4 +1,4 @@
-<%= form_with(model: option, local: true) do |form| %>
+<%= form_for [:admin, @option] do |form| %>
   <% if option.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(option.errors.count, "error") %> prohibited this option from being saved:</h2>

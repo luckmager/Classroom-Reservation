@@ -1,6 +1,6 @@
 <%= get_availability(@classroom).html_safe %>
 <div class="qrClassroomsShow">
-  <%= image_tag(generate_qr("#{request.protocol}#{request.host_with_port}/classrooms/#{@classroom.id}.json"), class: "qr-code") %>
+  <%= image_tag(generate_qr("#{request.protocol}#{request.host_with_port}/api/v1/buildings/#{@classroom.building.id}/classrooms/#{@classroom.id}"), class: "qr-code") %>
   <div class="qrDetails">
     <strong>Temperature:</strong>
     <%= @classroom.try(:device).try(:temperature).nil? ? 'Not available' : @classroom.try(:device).try(:temperature) %>

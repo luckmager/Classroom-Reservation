@@ -7,7 +7,7 @@
 <div class="breadcrumbs">
   <a href="/admin/dashboard">Administrator Dashboard</a>
   <span> / </span>
-  <%= link_to 'Classroom Options', options_path %>
+  <%= link_to 'Classroom Options', admin_options_path %>
 </div>
 
 <table class="adminTable">
@@ -22,10 +22,6 @@
       <tr>
         <td><%= option.name %></td>
         <td>
-          <%= link_to admin_option_path(option) do %>
-            <%= image_tag "show.png", class: "action" %>
-          <% end %>
-
           <%= link_to edit_admin_option_path(option) do %>
             <%= image_tag "edit.png", class: "action" %>
           <% end %>

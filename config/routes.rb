@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :reservations
-  devise_for :users, :controllers => { :registrations => "registrations" }
-  resources :devices
-  resources :options
-  resources :buildings
-  get 'buildings/index'
+  root 'buildings#index'
 
-  root 'classrooms#index'
-  resources :classrooms
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  resources :reservations, except: :show
+  resources :buildings, only: [:index, :show] do
+    resources :classrooms, only: [:show]
+  end
 
   namespace 'qr' do
     resources :buildings, only: [:index, :show] do
@@ -23,8 +22,8 @@ Rails.application.routes.draw do
         resources :options
       end
     end
-    resources :options
-    resources :devices
+    resources :options, except: :show
+    resources :devices, only: [:index, :edit, :update, :destroy]
     resources :users
   end
 
@@ -39,7 +38,8 @@ Rails.application.routes.draw do
           sessions: 'overrides/sessions'
       }
     end
-    namespace 'v2'do
+
+    namespace 'v2' do
       resources :devices, only: [:update]
     end
   end

@@ -4,37 +4,30 @@
   <%= link_to 'Buildings', buildings_path %>
   <span> / </span>
   <%= link_to @building.name, request.original_url %>
+  <span> / </span>
+  <%= link_to 'Classrooms', request.original_url %>
 </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @building.name %> <%= link_to 'Edit', edit_building_path(@building) %>
-</p>
-
-<table class="adminTable">
-  <thead>
-  <tr>
-    <th>Classroom</th>
-    <th>Options</th>
-    <th>Temperature</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
+<div class="classroomContainer">
   <% @building.classrooms.each do |classroom| %>
-    <tr>
-      <td><%= classroom.name %></td>
-      <td><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></td>
-      <td><%= classroom.try(:device).try(:temperature) %></td>
-      <td><%= link_to 'Show', classroom %></td>
-      <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
-        <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
+    <%= link_to building_classroom_path(@building, classroom) do %>
+      <div class="classroomBox">
+        <div class="classroomHeader">
+          <span class="title"><%= classroom.name %></span>
+          <span class="description"><%= classroom.building.name %></span>
+        </div>
+        <%= get_availability(classroom).html_safe %>
+        <div class="classroomContent">
+          <p>Maximum persons: <%= classroom.max_persons %></p>
+          <p><%= classroom.options.map { |option| option.name }.join(', ').html_safe %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-  </tbody>
-</table>
+</div>
 
-<%= link_to 'Back', buildings_path %>
+<%= link_to buildings_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

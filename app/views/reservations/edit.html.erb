@@ -1,6 +1,18 @@
+<div class="breadcrumbs">
+  <%= link_to 'My reservations', reservations_path %>
+  <span> / </span>
+  <%= link_to 'Edit ' + @reservation.title, edit_reservation_path(@reservation) %>
+</div>
+
+<div class="formContainer">
 <h1>Editing Reservation</h1>
 
 <%= render 'form', reservation: @reservation %>
 
-<%= link_to 'Show', @reservation %> |
-<%= link_to 'Back', reservations_path %>
+</div>
+
+<%= link_to reservations_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

@@ -13,8 +13,13 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <div id="guestText">
-            <a href="/classrooms" id="guestText">HR Classrooms</a>
+            <a href="/buildings" id="guestText">HR Classrooms</a>
             <ul class="navbar-right">
+              <% if user_signed_in? %>
+                <li>
+                  Welcome <%= current_user.email %> |
+                </li>
+              <% end %>
               <% if current_user && current_user.role == 2 %>
                 <li><a href="/admin/dashboard" id="loginText">Admin page</a></li>
               <% end %>
