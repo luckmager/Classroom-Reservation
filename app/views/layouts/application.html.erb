@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ClassroomView</title>
+    <title>HR Classrooms</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,37 +9,34 @@
   </head>
 
   <body>
-    <% if self.class.parent != Building %>
-    <div class="navbar navbar-inverted navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<div id="guestText">
-					<a href="/classrooms" id="guestText">HR Classrooms</a>
-					<ul class="navbar-right">
-            <% if current_user && current_user.role == "admin" %>
-						  <li><a href="/admin/dashboard" id="loginText">Admin page</a></li>
-            <% end %>
-						<% if user_signed_in? %>
-              <li>
-                <%= link_to('My Reservations', reservations_path) %>
-              </li>
-							<li>
-								<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-							</li>
-						<% else %>
-							<li>
-								<%= link_to('Login', new_user_session_path)  %>  
-							</li>
-						<% end %>
-					</ul>
-				</div>
-			</div>
-		</div>
-	 </div>
-  <% end %>
-	<div class="innerBody">
-    <%= self.class.superclass.name %>
-		<%= yield %>
-	</div>
+     <div class="navbar navbar-inverted navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="guestText">
+            <a href="/classrooms" id="guestText">HR Classrooms</a>
+            <ul class="navbar-right">
+              <% if current_user && current_user.role == "admin" %>
+                <li><a href="/admin/dashboard" id="loginText">Admin page</a></li>
+              <% end %>
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to('My Reservations', reservations_path) %>
+                </li>
+                <li>
+                  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to('Login', new_user_session_path)  %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="innerBody">
+      <%= yield %>
+    </div>
   </body>
 </html>

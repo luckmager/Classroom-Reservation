@@ -30,8 +30,9 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-	@reservation.user_id = current_user.id
-
+	  #@reservation.user_id = current_user.id
+    @reservation.user_id = 1
+    
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to classroom_path(@reservation.classroom), notice: 'Reservation was successfully created.' }
