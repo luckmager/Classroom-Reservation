@@ -1,6 +1,6 @@
 class Admin::DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  before_action :set_classroom, only: [:new, :create, :update]
+  before_action :set_classroom, only: [:new, :edit, :create, :update]
 
   # GET /admin/devices
   def index

@@ -1,15 +1,21 @@
 <div class="breadcrumbs">
   <a href="/admin/dashboard">Administrator Dashboard</a>
   <span> / </span>
-  <%= link_to 'Devices', admin_devices_path %>
+  <%= link_to 'Buildings', admin_buildings_path %>
   <span> / </span>
-  <%= link_to "Edit #{@device.name}", edit_admin_device_path(@device) %>
+  <%= link_to @classroom.building.name, admin_building_path(@classroom.building) %>
+  <span> / </span>
+  <%= link_to 'Classrooms', admin_building_classrooms_path %>
+  <span> / </span>
+  <%= link_to @classroom.name, admin_building_classroom_path(@classroom.building, @classroom) %>
+  <span> / </span>
+  <%= link_to "Edit device", new_admin_building_classroom_device_path(@classroom.building, @classroom, @device) %>
 </div>
 
 <div class="formContainer">
   <h1>Editing device <%= @device.name %></h1>
 
-  <%= render 'form_edit', device: @device %>
+  <%= render 'form', device: @device %>
 
   <%= link_to admin_building_classroom_path(@device.classroom.building, @device.classroom) do %>
     <div class="backButton">

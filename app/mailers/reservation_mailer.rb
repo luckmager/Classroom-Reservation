@@ -10,4 +10,10 @@ class ReservationMailer < ApplicationMailer
     mail(to: @reservation.user.email,
          subject: 'You have updated your reservation!')
   end
+
+  def reservation_canceled_mail
+    @reservation = params[:reservation]
+    mail(to: @reservation.user.email,
+         subject: 'Your reservation has been canceled.')
+  end
 end

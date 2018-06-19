@@ -155,7 +155,7 @@ module ClassroomsHelper
 		reservations.each do |reservation|
 			if (hour..hour).overlaps?(reservation.from_block..reservation.to_block)
 				if reservation.from_block == hour
-					reservationString = "<div class='dayHour start #{is_my_reservation(reservation.user_id)}'>#{reservation.title}<br />#{reservation.description}<br />#{reservation.user.try(:email)}</div>"
+					reservationString = "<div class='dayHour start #{is_my_reservation(reservation.user_id)}'>#{is_my_or_admin_reservation(reservation.user_id, reservation)} #{reservation.title}<br />#{reservation.description}<br />#{reservation.user.try(:email)}</div>"
 				elsif reservation.to_block == hour
 					reservationString = "<div class='dayHour end #{is_my_reservation(reservation.user_id)}'> <br /></div>"
 				else
@@ -164,6 +164,14 @@ module ClassroomsHelper
 			end
 		end
 		return reservationString
+	end
+
+	def is_my_or_admin_reservation(user_id, reservation)
+			if current_user && (current_user.id == user_id || current_user.role == 2)
+				return link_to reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } do
+            image_tag "delete.png", class: "action"
+				end
+			end
 	end
 
 	def is_my_reservation(user_id)

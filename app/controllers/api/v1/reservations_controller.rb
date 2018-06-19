@@ -58,6 +58,7 @@ class Api::V1::ReservationsController < ApiController
       render json: {
           success: true
       }, status: 200
+      ReservationMailer.with(reservation: @reservation).reservation_canceled_mail.deliver_now
     else
       render json: {
           success: false,

@@ -27,10 +27,10 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to classroom_path(@reservation.classroom), notice: 'Reservation was successfully created.' }
+        format.html { redirect_to building_classroom_path(@reservation.classroom.building, @reservation.classroom), notice: 'Reservation was successfully created.' }
         ReservationMailer.with(reservation: @reservation).reservation_booked_mail.deliver_now
       else
-        format.html { redirect_to classroom_path(@reservation.classroom), notice: @reservation.errors }
+        format.html { redirect_to building_classroom_path(@reservation.classroom.building, @reservation.classroom), notice: @reservation.errors }
       end
     end
   end
@@ -57,6 +57,7 @@ class ReservationsController < ApplicationController
       @reservation.destroy
       respond_to do |format|
         format.html { redirect_to reservations_url, notice: 'Reservation was successfully deleted.' }
+        ReservationMailer.with(reservation: @reservation).reservation_canceled_mail.deliver_now
       end
     else
       format.html { redirect_to reservations_path, notice: 'This is not your reservation.' }
