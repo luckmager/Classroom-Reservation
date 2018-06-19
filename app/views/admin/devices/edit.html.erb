@@ -9,7 +9,7 @@
 <div class="formContainer">
   <h1>Editing device <%= @device.name %></h1>
 
-  <%= render 'form', device: @device %>
+  <%= render 'form_edit', device: @device %>
 
   <%= link_to admin_building_classroom_path(@device.classroom.building, @device.classroom) do %>
     <div class="backButton">

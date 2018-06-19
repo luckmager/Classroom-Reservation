@@ -5,12 +5,18 @@
 <% end %>
 
 <div class="breadcrumbs">
-  <%= link_to 'Classrooms', classrooms_path %>
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', admin_buildings_path %>
+  <span> / </span>
+  <%= link_to @building.name, admin_building_path(@building) %>
+  <span> / </span>
+  <%= link_to 'Classrooms', admin_building_classrooms_path %>
 </div>
 
 <div class="classroomContainer">
   <% @classrooms.each do |classroom| %>
-    <%= link_to classroom do %>
+    <%= link_to admin_building_classroom_path(classroom.building, classroom) do %>
       <div class="classroomBox">
         <div class="classroomHeader">
           <span class="title"><%= classroom.name %></span>
@@ -26,3 +32,9 @@
     <% end %>
   <% end %>
 </div>
+
+<%= link_to admin_building_path(@building) do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

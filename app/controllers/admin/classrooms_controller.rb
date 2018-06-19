@@ -1,6 +1,6 @@
 class Admin::ClassroomsController < ApplicationController
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
-  before_action :set_building, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_building
 
   # GET /admin/classrooms
   def index
@@ -49,7 +49,7 @@ class Admin::ClassroomsController < ApplicationController
   def destroy
     @classroom.destroy
     respond_to do |format|
-      format.html { redirect_to admin_building_path(@building), notice: 'Classroom #{@classroom.name} was successfully deleted.' }
+      format.html { redirect_to admin_building_path(@building), notice: "Classroom #{@classroom.name} was successfully deleted." }
     end
   end
 

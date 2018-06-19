@@ -1,5 +1,20 @@
-<h1>New device for <%= @classroom.name %> in <%= @classroom.building.name %></h1>
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Buildings', admin_buildings_path %>
+  <span> / </span>
+  <%= link_to @classroom.building.name, admin_building_path(@classroom.building) %>
+  <span> / </span>
+  <%= link_to 'Classrooms', admin_building_classrooms_path %>
+  <span> / </span>
+  <%= link_to @classroom.name, admin_building_classroom_path(@classroom.building, @classroom) %>
+  <span> / </span>
+  <%= link_to "New device", new_admin_building_classroom_device_path(@classroom.building, @classroom, @device) %>
+</div>
 
-<%= render 'form', device: @device %>
+<div class="formContainer">
+  <h1>New device for <%= @classroom.name %> in <%= @classroom.building.name %></h1>
 
-<%= link_to 'Back', devices_path %>
+  <%= render 'form_new', device: @device %>
+
+</div>

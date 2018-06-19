@@ -9,5 +9,7 @@ class Api::V1::ClassroomsController < ApiController
 
   def show
     @classroom = Classroom.where(id: params[:id])
+
+    render "/api/v1/classrooms/show.json"
   end
 end

@@ -59,7 +59,7 @@ class Admin::DevicesController < ApplicationController
     end
 
     def set_classroom
-      #@classroom = Classroom.find(params[:classroom_id])
+      @classroom = Classroom.find(params[:classroom_id])
     end
 
     # Trusted parameters

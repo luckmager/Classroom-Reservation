@@ -19,20 +19,31 @@
 <p>
   <strong>Building:</strong>
   <%= @classroom.building.name %><br />
+
   <strong>Name:</strong>
   <%= @classroom.name %><br />
+
   <strong>Temperature:</strong>
   <%= @classroom.try(:device).try(:temperature).nil? ? 'None' : @classroom.try(:device).try(:temperature) %><br />
+
   <strong>Humidity:</strong>
   <%= @classroom.try(:device).try(:humidity).nil? ? 'None' : @classroom.try(:device).try(:humidity) %><br />
+
   <% if @classroom.device %>
     <strong>Device:</strong>
     <%= @classroom.device.name %>,
+
     <strong>Device token:</strong>
     <%= @classroom.device.auth %>
+
     <%= link_to edit_admin_building_classroom_device_path(@building, @classroom, @classroom.device) do %>
       <%= image_tag "edit.png", class: "action" %>
     <% end %>
+
+    <%= link_to admin_building_classroom_device_path(@building, @classroom, @classroom.device), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <%= image_tag "delete.png", class: "action" %>
+    <% end %>
+
   <% else %>
     <strong>Create new device:</strong>
     <%= link_to 'New device', new_admin_building_classroom_device_path(@classroom.building, @classroom) %>
@@ -67,7 +78,7 @@
   </div>
 </div>
 
-<%= link_to classrooms_path do %>
+<%= link_to admin_building_classrooms_path do %>
   <div class="backButton">
     <p>Back</p>
   </div>

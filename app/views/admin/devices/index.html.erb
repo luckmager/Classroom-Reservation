@@ -26,16 +26,13 @@
   <% @devices.each do |device| %>
       <tr>
         <td><%= device.id %></td>
-        <td><%= device.classroom.building.name %></td>
-        <td><%= device.classroom.name %></td>
+        <td><%= device.try(:classroom).try(:building).try(:name) %></td>
+        <td><%= device.try(:classroom).try(:name) %></td>
         <td><%= device.name %></td>
         <td><%= device.temperature %></td>
         <td><%= device.humidity %></td>
         <td><%= device.auth %></td>
         <td>
-          <%= link_to edit_admin_building_classroom_device_path(device.classroom.building, device.classroom, device) do %>
-            <%= image_tag "edit.png", class: "action" %>
-          <% end %>
 
           <%= link_to admin_device_path(device), method: :delete, data: { confirm: 'Are you sure?' } do %>
             <%= image_tag "delete.png", class: "action" %>
