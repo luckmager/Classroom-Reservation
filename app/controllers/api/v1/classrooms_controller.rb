@@ -6,4 +6,8 @@ class Api::V1::ClassroomsController < ApiController
 
     render "/api/v1/classrooms/index.json"
   end
+
+  def show
+    @classrooms = Classroom.where(id: params[:id])
+  end
 end
