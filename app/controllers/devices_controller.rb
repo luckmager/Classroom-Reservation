@@ -2,13 +2,11 @@ class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
 
   # GET /devices
-  # GET /devices.json
   def index
     @devices = Device.all
   end
 
-  # GET /devices/1
-  # GET /devices/1.json
+  # GET /devices/index
   def show
   end
 
@@ -17,12 +15,11 @@ class DevicesController < ApplicationController
     @device = Device.new
   end
 
-  # GET /devices/1/edit
+  # GET /devices/index/edit
   def edit
   end
 
   # POST /devices
-  # POST /devices.json
   def create
     @device = Device.new(device_params)
 
@@ -37,8 +34,7 @@ class DevicesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /devices/1
-  # PATCH/PUT /devices/1.json
+  # PATCH/PUT /devices/index
   def update
     respond_to do |format|
       if @device.update(device_params)
@@ -49,8 +45,7 @@ class DevicesController < ApplicationController
     end
   end
 
-  # DELETE /devices/1
-  # DELETE /devices/1.json
+  # DELETE /devices/index
   def destroy
     @device.destroy
     respond_to do |format|
@@ -60,12 +55,12 @@ class DevicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Callbacks
     def set_device
       @device = Device.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Trusted parameters
     def device_params
       params.require(:device).permit(:name, :auth, :temperature, :humidity, :classroom_id)
     end
