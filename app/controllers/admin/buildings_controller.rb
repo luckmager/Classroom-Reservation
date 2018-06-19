@@ -1,28 +1,25 @@
 class Admin::BuildingsController < ApplicationController
   before_action :set_building, only: [:show, :edit, :update, :destroy]
 
-  # GET /buildings
-  # GET /buildings.json
+  # GET /admin/buildings
   def index
     @buildings = Building.all
   end
 
-  # GET /buildings/1
-  # GET /buildings/1.json
+  # GET /admin/buildings/index
   def show
   end
 
-  # GET /buildings/new
+  # GET /admin/buildings/new
   def new
     @building = Building.new
   end
 
-  # GET /buildings/1/edit
+  # GET /admin/buildings/index/edit
   def edit
   end
 
-  # POST /buildings
-  # POST /buildings.json
+  # POST /admin/buildings
   def create
     @building = Building.new(building_params)
 
@@ -35,8 +32,7 @@ class Admin::BuildingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /buildings/1
-  # PATCH/PUT /buildings/1.json
+  # PUT /admin/buildings/index
   def update
     respond_to do |format|
       if @building.update(building_params)
@@ -47,22 +43,21 @@ class Admin::BuildingsController < ApplicationController
     end
   end
 
-  # DELETE /buildings/1
-  # DELETE /buildings/1.json
+  # DELETE /admin/buildings/index
   def destroy
     @building.destroy
     respond_to do |format|
-      format.html { redirect_to admin_buildings_path, notice: 'Building was successfully destroyed.' }
+      format.html { redirect_to admin_buildings_path, notice: 'Building was successfully deleted.' }
     end
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+  # Callbacks
   def set_building
     @building = Building.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Trusted parameters
   def building_params
     params.require(:building).permit(:name)
   end

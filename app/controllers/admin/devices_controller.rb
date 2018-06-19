@@ -2,25 +2,25 @@ class Admin::DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
   before_action :set_classroom, only: [:new, :create, :update]
 
-  # GET /devices
+  # GET /admin/devices
   def index
     @devices = Device.all
   end
 
-  # GET /devices/index
+  # GET /admin/devices/index
   def show
   end
 
-  # GET /devices/new
+  # GET /admin/devices/new
   def new
     @device = Device.new
   end
 
-  # GET /devices/index/edit
+  # GET /admin/devices/index/edit
   def edit
   end
 
-  # POST /devices
+  # POST /admin/devices
   def create
     @device = Device.new(device_params)
     @device.classroom_id = @classroom.id
@@ -33,7 +33,7 @@ class Admin::DevicesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /devices/index
+  # PUT /admin/devices/index
   def update
     respond_to do |format|
       if @device.update(device_params)
@@ -44,11 +44,11 @@ class Admin::DevicesController < ApplicationController
     end
   end
 
-  # DELETE /devices/index
+  # DELETE /admin/devices/index
   def destroy
     @device.destroy
     respond_to do |format|
-      format.html { redirect_to admin_devices_url, notice: 'Device was successfully destroyed.' }
+      format.html { redirect_to admin_devices_url, notice: 'Device was successfully deleted.' }
     end
   end
 

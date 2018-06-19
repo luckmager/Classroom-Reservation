@@ -2,26 +2,26 @@ class Admin::ClassroomsController < ApplicationController
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
   before_action :set_building, only: [:show, :new, :create, :edit, :update, :destroy]
 
-  # GET /classrooms
+  # GET /admin/classrooms
   def index
     @classrooms = Classroom.all
   end
 
-  # GET /classrooms/1
+  # GET /admin//classrooms/index
   def show
 	  @reservation = Reservation.new
   end
 
-  # GET /classrooms/new
+  # GET /admin//classrooms/new
   def new
     @classroom = Classroom.new
   end
 
-  # GET /classrooms/1/edit
+  # GET /admin//classrooms/index/edit
   def edit
   end
 
-  # POST /classrooms
+  # POST /admin//classrooms
   def create
     @classroom = Classroom.new(classroom_params)
 
@@ -34,7 +34,7 @@ class Admin::ClassroomsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /classrooms/1
+  # PUT /admin//classrooms/index
   def update
     respond_to do |format|
       if @classroom.update(classroom_params)
@@ -45,7 +45,7 @@ class Admin::ClassroomsController < ApplicationController
     end
   end
 
-  # DELETE /classrooms/1
+  # DELETE /classrooms/index
   def destroy
     @classroom.destroy
     respond_to do |format|
@@ -54,7 +54,7 @@ class Admin::ClassroomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Callbacks
     def set_classroom
       @classroom = Classroom.find(params[:id])
     end
@@ -63,7 +63,7 @@ class Admin::ClassroomsController < ApplicationController
       @building = Building.find(params[:building_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Trusted parameters
     def classroom_params
       params.require(:classroom).permit(:name, :max_persons, :option_ids => [])
     end

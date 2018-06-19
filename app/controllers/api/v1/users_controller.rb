@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApiController
   before_filter :authenticate_user!, only: [:current]
 
+  # Check current user
   def current
     @user = current_user
     puts "errors are: #{@user.errors.to_hash}"
@@ -12,6 +13,7 @@ class Api::V1::UsersController < ApiController
     end
   end
 
+  # GET /api/v1/users
   def index
     @users = User.all
 

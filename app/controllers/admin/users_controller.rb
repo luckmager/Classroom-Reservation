@@ -1,25 +1,25 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
+  # GET /admin/users
   def index
     @users = User.all
   end
 
-  # GET /users/index
+  # GET /admin/users/index
   def show
   end
 
-  # GET /users/new
+  # GET /admin/users/new
   def new
     @user= User.new
   end
 
-  # GET /users/index/edit
+  # GET /admin/users/index/edit
   def edit
   end
 
-  # POST /users
+  # POST /admin/users
   def create
     @user = User.new(user_params)
 
@@ -32,7 +32,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user/index
+  # PUT /admin/user/index
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -43,7 +43,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/index
+  # DELETE /admin/users/index
   def destroy
     @user.destroy
     respond_to do |format|
