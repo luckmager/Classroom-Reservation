@@ -1,9 +1,3 @@
-<% if notice %>
-  <div class="success">
-    <p><%= notice %></p>
-  </div>
-<% end %>
-
 <div class="breadcrumbs">
   <%= link_to 'QR', qr_buildings_path %>
   <span> / </span>
@@ -36,7 +30,7 @@
       <td><%= classroom.max_persons %></td>
       <td>
         <%= link_to qr_building_classroom_path(@building, classroom) do %>
-          <%= image_tag "show.png", class: "actions" %>
+          <%= image_tag "show.png", class: "action" %>
         <% end %>
       </td>
     </tr>

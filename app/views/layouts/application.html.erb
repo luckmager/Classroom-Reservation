@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <% if self.class.parent != Building %>
     <div class="navbar navbar-inverted navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -35,7 +36,9 @@
 			</div>
 		</div>
 	 </div>
+  <% end %>
 	<div class="innerBody">
+    <%= self.class.superclass.name %>
 		<%= yield %>
 	</div>
   </body>

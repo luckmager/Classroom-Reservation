@@ -4,8 +4,12 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.where("user_id = ? AND date >= ?", current_user.id, Time.now.strftime("%Y-%m-%d"))
-                               .order(:date, :from_block)
+    if current_user
+      @reservations = Reservation.where("user_id = ? AND date >= ?", current_user.id, Time.now.strftime("%Y-%m-%d"))
+                                 .order(:date, :from_block)
+    else
+      @reservations = Reservation.all
+    end
   end
 
   # GET /reservations/1

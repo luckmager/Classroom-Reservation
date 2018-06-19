@@ -1,4 +1,4 @@
-class Qr::BuildingsController < ApplicationController
+class Qr::BuildingsController < QrController
 
   def index
     @buildings = Building.all

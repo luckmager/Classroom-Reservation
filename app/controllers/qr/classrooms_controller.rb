@@ -1,4 +1,4 @@
-class Qr::ClassroomsController < ApplicationController
+class Qr::ClassroomsController < QrController
 
   def show
     @classroom = Classroom.find(params[:id])
