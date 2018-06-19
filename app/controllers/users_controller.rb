@@ -15,12 +15,12 @@ class UsersController < ApplicationController
   
   private
   # Callback
-  def set_building
+  def set_user
     @user = User.find(params[:id])
   end
 
   # Trusted parameters
-  def building_params
+  def user_params
     params.require(:user).permit(:email, :password, :role, :password_confirmation, :session)
   end
 end
