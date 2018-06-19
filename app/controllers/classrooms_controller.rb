@@ -2,13 +2,11 @@ class ClassroomsController < ApplicationController
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
 
   # GET /classrooms
-  # GET /classrooms.json
   def index
     @classrooms = Classroom.all
   end
 
-  # GET /classrooms/1
-  # GET /classrooms/1.json
+  # GET /classrooms/index
   def show
 	  @reservation = Reservation.new
     @reservations = Reservation.where(classroom_id: params[:id])
@@ -19,12 +17,11 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.new
   end
 
-  # GET /classrooms/1/edit
+  # GET /classrooms/index/edit
   def edit
   end
 
   # POST /classrooms
-  # POST /classrooms.json
   def create
     @classroom = Classroom.new(classroom_params)
 
@@ -39,8 +36,7 @@ class ClassroomsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /classrooms/1
-  # PATCH/PUT /classrooms/1.json
+  # PATCH/PUT /classrooms/index
   def update
     respond_to do |format|
       if @classroom.update(classroom_params)
@@ -53,8 +49,7 @@ class ClassroomsController < ApplicationController
     end
   end
 
-  # DELETE /classrooms/1
-  # DELETE /classrooms/1.json
+  # DELETE /classrooms/index
   def destroy
     @classroom.destroy
     respond_to do |format|
@@ -64,12 +59,12 @@ class ClassroomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Callbacks
     def set_classroom
       @classroom = Classroom.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Trusted parameters
     def classroom_params
       params.require(:classroom).permit(:name, :building_id, :option_ids => [])
     end

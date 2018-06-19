@@ -31,12 +31,12 @@
         <td><%= device.humidity %></td>
         <td><%= device.auth %></td>
         <td>
-          <%= link_to edit_admin_device_path(device) do %>
-            <%= image_tag "edit.png", class: "actions" %>
+          <%= link_to edit_admin_building_classroom_device_path(device.classroom.building, device.classroom, device) do %>
+            <%= image_tag "edit.png", class: "action" %>
           <% end %>
 
           <%= link_to admin_device_path(device), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <%= image_tag "delete.png", class: "actions" %>
+            <%= image_tag "delete.png", class: "action" %>
           <% end %>
         </td>
       </tr>
@@ -44,7 +44,7 @@
     <tr>
       <td colspan="7">
         <%= link_to new_admin_device_path do %>
-          <%= image_tag "add.png", class: "actions" %><span class="noLink"> Add a new device</span>
+          <%= image_tag "add.png", class: "action" %><span class="noLink"> Add a new device</span>
         <% end %>
       </td>
     </tr>

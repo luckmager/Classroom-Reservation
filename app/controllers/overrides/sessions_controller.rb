@@ -13,8 +13,9 @@ module Overrides
 
     def render_create_success
       render json: {
-          login: @resource.as_json
-      }
+          success: true,
+          email: @resource.email
+      }, status: 200
     end
 
     def render_create_error_not_confirmed
@@ -25,8 +26,9 @@ module Overrides
 
     def render_create_error_bad_credentials
       render json: {
+          success: false,
           errors: [I18n.t("devise_token_auth.sessions.bad_credentials")]
-      }, status: 402
+      }, status: 401
     end
 
     def render_destroy_success

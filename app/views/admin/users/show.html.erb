@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="breadcrumbs">
+  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <span> / </span>
+  <%= link_to 'Users', admin_users_path %>
+  <span> / </span>
+  <%= link_to @user.name, admin_user_path(@user) %>
+</div>
+
 
 <p>
-  <strong>Name:</strong>
-  <%= @device.name %>
+  <strong>Email:</strong>
+  <%= @user.email %>
 </p>
 
 <p>
-  <strong>Temperature:</strong>
-  <%= @device.temperature %>
+  <strong>Role:</strong>
+  <%= get_role_name(@user.role) %>
 </p>
 
-<%= link_to 'Edit', edit_device_path(@device) %> |
-<%= link_to 'Back', devices_path %>
+<%= link_to admin_users_path do %>
+  <div class="backButton">
+    <p>Back</p>
+  </div>
+<% end %>

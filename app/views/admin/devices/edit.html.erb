@@ -6,12 +6,14 @@
   <%= link_to "Edit #{@device.name}", edit_admin_device_path(@device) %>
 </div>
 
-<h1>Editing device <%= @device.name %></h1>
+<div class="formContainer">
+  <h1>Editing device <%= @device.name %></h1>
 
-<%= render 'form', device: @device %>
+  <%= render 'form', device: @device %>
 
-<%= link_to admin_devices_path do %>
-  <div class="backButton">
-    <p>Back</p>
-  </div>
-<% end %>
+  <%= link_to admin_building_classroom_path(@device.classroom.building, @device.classroom) do %>
+    <div class="backButton">
+      <p>Back</p>
+    </div>
+  <% end %>
+</div>

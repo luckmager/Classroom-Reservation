@@ -1,28 +1,28 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
+  # GET /admin/users
   def index
     @users = User.all
   end
 
-  # GET /users/index
+  # GET /admin/users/index
   def show
   end
 
-  # GET /users/new
+  # GET /admin/users/new
   def new
     @user= User.new
   end
 
-  # GET /users/index/edit
+  # GET /admin/users/index/edit
   def edit
   end
 
-  # POST /users
+  # POST /admin/users
   def create
     @user = User.new(user_params)
-
+    @user.password = "Test1324"
     respond_to do |format|
       if @user.save
         format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
@@ -32,8 +32,9 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user/index
+  # PUT /admin/user/index
   def update
+    @user.role = 1
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
@@ -43,11 +44,11 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/index
+  # DELETE /admin/users/index
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_users_path, notice: 'User was successfully deleted.' }
     end
   end
 
@@ -59,6 +60,6 @@ class Admin::UsersController < ApplicationController
 
   # Trusted params
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :role, :password)
+    params.require(:user).permit(:email, :role)
   end
 end

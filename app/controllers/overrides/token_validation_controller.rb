@@ -5,8 +5,8 @@ module Overrides
       # @resource will have been set by set_user_by_token concern
       if @resource
         render json: {
-            data: @resource.as_json(methods: :calculate_operating_thetan)
-        }
+            success: true
+        }, status: 200
       else
         render json: {
             success: false,

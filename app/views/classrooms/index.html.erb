@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
 <div class="breadcrumbs">
   <%= link_to 'Classrooms', classrooms_path %>

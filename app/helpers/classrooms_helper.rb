@@ -138,16 +138,16 @@ module ClassroomsHelper
 	def get_reservation(date, hour)
 		reservations = Reservation.where(classroom_id: params[:id], date: date)
 		if reservations.length == 0
-			return no_reservation
+			return no_reservation(date, hour)
 		elsif check_reservation(reservations, hour) != ''
 			return check_reservation(reservations, hour)
 		else
-			return no_reservation
+			return no_reservation(date, hour)
 		end
 	end
 
-	def no_reservation
-		return '<div class="dayHour empty">None</div>'
+	def no_reservation(date, hour)
+		return "<div onclick='showReservationForm(this)' class='dayHour empty' data-date-type='#{date}' data-block-type='#{hour}'>None</div>"
 	end
 
 	def check_reservation(reservations, hour)

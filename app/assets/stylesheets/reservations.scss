@@ -1,3 +1,26 @@
 // Place all the styles related to the Reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.reservationForm {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  margin-left: -18%;
+  width: 75%;
+  max-width: 400px;
+  background: #D3D3D3;
+  padding: 30px;
+}
+
+.reservationForm input[type=submit] {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+}
+
+.hideReservationForm {
+  position: absolute;
+  right: 28px;
+  top: 15px;
+  cursor: pointer;
+}

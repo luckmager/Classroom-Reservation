@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Your reservation <%= @reservation.title %> has been updated, <%= @reservation.user.email %></h1>
+<p>
+  Title: <%= @reservation.title %>
+  Description: <%= @reservation.description %>
+  Your reservation is on: <%= @reservation.date %><br />
+  From: <%= @reservation.from_block %> to: <%= @reservation.to_block %>
+  Location: <%= @reservation.classroom.building.name %>
+  Classroom: <%= @reservation.classroom.name %>
+</p>
+<p>Kind regards,</p>
+<p>Team Limey</p>
+</body>
+</html>

@@ -2,14 +2,16 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
-  # GET /reservations.json
   def index
-    @reservations = Reservation.where("user_id = ? AND date >= ?", current_user.id, Time.now.strftime("%Y-%m-%d"))
-                               .order(:date, :from_block)
+    if current_user
+      @reservations = Reservation.where("user_id = ? AND date >= ?", current_user.id, Time.now.strftime("%Y-%m-%d"))
+                                 .order(:date, :from_block)
+    else
+      @reservations = Reservation.all
+    end
   end
 
-  # GET /reservations/1
-  # GET /reservations/1.json
+  # GET /reservations/index
   def show
   end
 
@@ -18,18 +20,19 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
-  # GET /reservations/1/edit
+  # GET /reservations/index/edit
   def edit
   end
 
   # POST /reservations
-  # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-	  @reservation.user_id = current_user.id
+	  #@reservation.user_id = current_user.id
+    @reservation.user_id = 2
+
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to classroom_path(@reservation.classroom), notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
         ReservationMailer.with(reservation: @reservation).reservation_booked_mail.deliver_now
       else
@@ -39,13 +42,13 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reservations/1
-  # PATCH/PUT /reservations/1.json
+  # PUT /reservations/index
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
+        ReservationMailer.with(reservation: @reservation).reservation_updated_mail.deliver_now
       else
         format.html { render :edit }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
@@ -53,8 +56,7 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # DELETE /reservations/1
-  # DELETE /reservations/1.json
+  # DELETE /reservations/index
   def destroy
     @reservation.destroy
     respond_to do |format|
@@ -64,12 +66,12 @@ class ReservationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Callbacks
     def set_reservation
       @reservation = Reservation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Trusted parameters
     def reservation_params
       params.require(:reservation).permit(:classroom_id, :date, :title, :description, :from_block, :to_block)
     end

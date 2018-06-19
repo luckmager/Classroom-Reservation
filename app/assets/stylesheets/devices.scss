@@ -1,3 +1,14 @@
 // Place all the styles related to the Devices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.generateButton {
+  display: inline-block;
+  border: 0;
+  color: #FFF;
+  background: #CC0033;
+  padding: 6px 12px;
+  height: 20px;
+  width: 105px;
+  cursor: pointer;
+  margin-top: 5px;
+}

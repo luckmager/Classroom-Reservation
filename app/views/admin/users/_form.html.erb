@@ -16,6 +16,11 @@
     <%= form.text_field :email, id: :user_email %>
   </div>
 
+  <div class="field">
+    <%= form.label :role %>
+    <%= form.select :role, options_for_select(User.roles) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

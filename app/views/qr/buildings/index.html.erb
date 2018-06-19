@@ -1,11 +1,5 @@
-<% if notice %>
-  <div class="success">
-    <p><%= notice %></p>
-  </div>
-<% end %>
-
 <div class="breadcrumbs">
-  <a href="/admin/dashboard">Administrator Dashboard</a>
+  <%= link_to 'QR', qr_buildings_path %>
   <span> / </span>
   <%= link_to 'Buildings', qr_buildings_path %>
 </div>
@@ -25,7 +19,7 @@
       <td><%= building.name %></td>
       <td>
         <%= link_to qr_building_path(building) do %>
-          <%= image_tag "show.png", class: "actions" %>
+          <%= image_tag "show.png", class: "action" %>
         <% end %>
       </td>
     </tr>

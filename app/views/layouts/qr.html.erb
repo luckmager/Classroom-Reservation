@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HR Classrooms QR</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverted navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="guestText">
+            <a href="/classrooms" id="guestText"><%= get_classroom %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="innerBody">
+      <%= yield %>
+    </div>
+  </body>
+</html>
