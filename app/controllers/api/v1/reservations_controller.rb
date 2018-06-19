@@ -5,7 +5,8 @@ class Api::V1::ReservationsController < ApiController
   def index
     # Get the reservations of the user
     if current_user
-      @reservations = Reservation.where(user_id: current_user.id)
+      @reservations = Reservation.where("user_id = ? AND date >= ?", current_user.id, Time.now.strftime("%Y-%m-%d"))
+                                 .order(:date, :from_block)
     end
 
     render "/api/v1/reservations/index.json"
