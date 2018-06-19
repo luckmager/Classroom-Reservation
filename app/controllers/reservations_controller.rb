@@ -27,8 +27,7 @@ class ReservationsController < ApplicationController
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
-	  #@reservation.user_id = current_user.id
-    @reservation.user_id = 2
+	  @reservation.user_id = current_user.id
 
     respond_to do |format|
       if @reservation.save

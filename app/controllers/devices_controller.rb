@@ -37,10 +37,14 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/index
   def update
     respond_to do |format|
-      if @device.update(device_params)
-        format.html { redirect_to admin_devices_path, notice: 'Device was successfully updated.' }
+      if @device.auth == params[:auth]
+        if @device.update(device_params)
+          format.html { redirect_to admin_devices_path, notice: 'Device was successfully updated.' }
+        else
+          format.html { render :admin, :edit }
+        end
       else
-        format.html { render :admin, :edit }
+        format.html { redirect_to classrooms_path, notice: 'Unauthorized.' }
       end
     end
   end

@@ -39,5 +39,8 @@ Rails.application.routes.draw do
           sessions: 'overrides/sessions'
       }
     end
+    namespace 'v2'do
+      resources :devices, only: [:update]
+    end
   end
 end

@@ -13,6 +13,7 @@
 <table class="adminTable">
   <thead>
     <tr>
+      <td>Id</td>
       <td>Building</td>
       <td>Classroom</td>
       <td>Device name</td>
@@ -24,6 +25,7 @@
   </thead>
   <% @devices.each do |device| %>
       <tr>
+        <td><%= device.id %></td>
         <td><%= device.classroom.building.name %></td>
         <td><%= device.classroom.name %></td>
         <td><%= device.name %></td>
@@ -42,7 +44,7 @@
       </tr>
   <% end %>
     <tr>
-      <td colspan="7">
+      <td colspan="8">
         <%= link_to new_admin_device_path do %>
           <%= image_tag "add.png", class: "action" %><span class="noLink"> Add a new device</span>
         <% end %>

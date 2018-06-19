@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApiController
-  before_filter :authenticate_user!, only: [:current]
 
   # Check current user
   def current
@@ -13,10 +12,4 @@ class Api::V1::UsersController < ApiController
     end
   end
 
-  # GET /api/v1/users
-  def index
-    @users = User.all
-
-    render "/api/v1/users/index.json"
-  end
 end

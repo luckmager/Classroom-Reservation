@@ -1,5 +1,4 @@
 class Api::V1::ClassroomsController < ApiController
-  before_action :authenticate_user!
 
   # GET /api/v1/classrooms
   def index
