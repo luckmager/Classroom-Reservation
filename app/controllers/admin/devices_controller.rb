@@ -48,7 +48,7 @@ class Admin::DevicesController < ApplicationController
   def destroy
     @device.destroy
     respond_to do |format|
-      format.html { redirect_to admin_devices_url, notice: 'Device was successfully deleted.' }
+      format.html { redirect_to admin_building_classroom_path(@device.classroom.building, @device.classroom), notice: 'Device was successfully deleted.' }
     end
   end
 

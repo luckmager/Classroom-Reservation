@@ -1,1 +1,1 @@
-json.(@classroom, :id, :name)
+json.classroom(@classroom, :id, :name)
