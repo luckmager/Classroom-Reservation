@@ -8,6 +8,6 @@ class Api::V1::ClassroomsController < ApiController
   end
 
   def show
-    @classrooms = Classroom.where(id: params[:id])
+    @classroom = Classroom.where(id: params[:id])
   end
 end
