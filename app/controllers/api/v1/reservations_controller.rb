@@ -4,7 +4,9 @@ class Api::V1::ReservationsController < ApiController
   # GET /api/v1/reservations
   def index
     # Get the reservations of the user
-    @reservations = Reservation.where(user_id: current_user.id)
+    if current_user
+      @reservations = Reservation.where(user_id: current_user.id)
+    end
 
     render "/api/v1/reservations/index.json"
   end

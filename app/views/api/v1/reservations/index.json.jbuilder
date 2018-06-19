@@ -1,1 +1,1 @@
-json.extract! @reservation, :id, :classroom_id, :date, :title, :description, :from_block, :to_block
+json.array! @reservations, partial: 'api/v1/reservations/reservation', as: :reservation
